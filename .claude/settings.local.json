@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:a2zradiology.ai)",
+      "WebFetch(domain:vista.ai)",
+      "WebFetch(domain:hilo.com)",
+      "WebFetch(domain:synchron.com)",
+      "WebFetch(domain:www.neurodelabs.com)",
+      "WebFetch(domain:swordhealth.com)",
+      "WebFetch(domain:www.bio-beat.com)",
+      "WebFetch(domain:www.stairmed.com)",
+      "WebFetch(domain:sereneuro.com)",
+      "Bash(npx tsc:*)",
+      "Bash(npm install react-map-gl mapbox-gl)",
+      "Bash(npm install --save-dev @types/mapbox-gl)",
+      "Bash(npm run build)",
+      "Bash(git init)",
+      "Bash(git config user.name \"alochemes\")",
+      "Bash(git config user.email \"alochemes@gmail.com\")",
+      "Bash(git remote add origin https://github.com/alochemes/new_site.git)",
+      "Bash(git add .eslintrc.json docs/ \"AI WEBSITE LIST.txt\")",
+      "Bash(git add src/app/for-patients/ForPatientsPageClient.tsx)",
+      "Bash(git commit:*)",
+      "Bash(git add \"Logo Icon \\(3\\).png\" public/images/logo-icon.png src/app/icon.png src/components/layout/Navbar.tsx src/components/layout/Footer.tsx)",
+      "Bash(git add tailwind.config.ts src/styles/globals.css src/components/ui/ProviderMap.tsx src/app/product/ProductPageClient.tsx src/app/investors/InvestorsPageClient.tsx src/app/news/NewsPageClient.tsx src/app/about/AboutPageClient.tsx)"
+    ]
+  }
+}

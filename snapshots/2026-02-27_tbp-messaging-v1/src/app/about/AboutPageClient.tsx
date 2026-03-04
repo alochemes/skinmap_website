@@ -151,7 +151,7 @@ const advisors: Advisor[] = [
 const values: Value[] = [
   {
     title: 'Precision',
-    description: 'Every skinmap record is high-resolution, date-stamped, and built for objective comparison — because "looks about the same" has never been a clinical standard.',
+    description: 'Total Body Photography that captures the full skin surface in ~60 seconds — high-resolution, documented, and comparable visit-over-visit.',
     icon: Target,
   },
   {
@@ -203,19 +203,44 @@ export function AboutPageClient() {
     <>
 
       {/* ── HERO / MISSION ─────────────────────────────────────────── */}
-      <Section background="white" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <Section background="navy" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+
+        {/* Subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Green glow — bottom left */}
+        <div
+          className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgb(0 202 90), transparent 70%)' }}
+          aria-hidden="true"
+        />
+        {/* Brand-blue glow — top right */}
+        <div
+          className="absolute -top-20 right-0 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgb(39 24 129), transparent 70%)' }}
+          aria-hidden="true"
+        />
+
         <Container>
           <div className="max-w-3xl relative z-10">
             <FadeUp>
-              <SectionEyebrow>OUR MISSION</SectionEyebrow>
+              <SectionEyebrow className="text-coral-light">OUR MISSION</SectionEyebrow>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-navy-500 mt-4 mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white mt-4 mb-6">
                 No Skin Cancer Should Go Undetected.
               </h1>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-lg text-navy-100 leading-relaxed mb-10 max-w-2xl">
                 The tools to detect skin cancer early exist — they just aren&apos;t in the hands of every physician.
                 skinmap brings Total Body Photography to any practice, any iPhone, at a fraction of the
                 cost of conventional systems. Medicare reimbursed. No specialist training required.
@@ -227,7 +252,7 @@ export function AboutPageClient() {
                   <Button variant="primary" size="lg">Request a Demo</Button>
                 </Link>
                 <Link href="/contact">
-                  <Button variant="outline" size="lg">Get in Touch</Button>
+                  <Button variant="outline-white" size="lg">Get in Touch</Button>
                 </Link>
               </div>
             </FadeUp>

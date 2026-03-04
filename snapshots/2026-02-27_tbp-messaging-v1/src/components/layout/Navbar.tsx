@@ -23,8 +23,10 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
-  // All pages use white heroes — nav is always solid navy
-  const hasDarkHero = false;
+  // Determine if we're on a page with a dark hero (home, investors)
+  // so we can start with white text; otherwise start navy
+  const darkHeroPages = ['/', '/investors', '/product', '/about', '/for-patients'];
+  const hasDarkHero = darkHeroPages.includes(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);

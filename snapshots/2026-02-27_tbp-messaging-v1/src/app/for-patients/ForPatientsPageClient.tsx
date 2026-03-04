@@ -365,9 +365,16 @@ export function ForPatientsPageClient() {
     <>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative min-h-[60vh] flex items-center pt-24 pb-16 overflow-hidden bg-white"
+        className="relative min-h-[60vh] flex items-center pt-24 pb-16 overflow-hidden bg-gradient-hero"
         aria-label="Find a Provider"
       >
+        {/* Glow */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-coral/15 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-blue/15 blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-navy-500/25 blur-3xl" />
+        </div>
+
         <Container className="relative z-10">
           <div className="max-w-2xl">
             <FadeUp>
@@ -375,7 +382,7 @@ export function ForPatientsPageClient() {
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-500 tracking-tight leading-[1.05] mb-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.05] mb-5">
                 Find a skinmap
                 <br />
                 <span className="text-coral">Physician Near You.</span>
@@ -383,7 +390,7 @@ export function ForPatientsPageClient() {
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-lg">
                 skinmap is available at dermatology practices and primary care offices across the U.S.
                 Search by city, name, or specialty to find a physician near you.
               </p>
@@ -391,18 +398,18 @@ export function ForPatientsPageClient() {
 
             {/* Search bar */}
             <FadeUp delay={0.3}>
-              <div className="flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-2xl px-4 py-3 max-w-lg">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-3 max-w-lg">
                 <Search size={18} className="text-gray-400 shrink-0" aria-hidden="true" />
                 <input
                   type="search"
                   value={search}
                   onChange={(e) => { setSearch(e.target.value); setSelectedId(null); }}
                   placeholder="Search by city, name, or practice…"
-                  className="flex-1 bg-transparent text-navy placeholder:text-gray-400 text-sm focus:outline-none"
+                  className="flex-1 bg-transparent text-white placeholder:text-gray-400 text-sm focus:outline-none"
                   aria-label="Search providers"
                 />
                 {search && (
-                  <button onClick={clearSearch} aria-label="Clear search" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <button onClick={clearSearch} aria-label="Clear search" className="text-gray-400 hover:text-white transition-colors">
                     <X size={16} aria-hidden="true" />
                   </button>
                 )}
@@ -410,7 +417,7 @@ export function ForPatientsPageClient() {
             </FadeUp>
 
             <FadeUp delay={0.4}>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-sm text-gray-400 mt-4">
                 Not seeing a provider near you?{' '}
                 <a href="#request" className="text-coral font-semibold hover:underline underline-offset-2">
                   Request skinmap in your area →
@@ -639,7 +646,7 @@ export function ForPatientsPageClient() {
                   {
                     step: '03',
                     title: 'After your appointment',
-                    body: 'If your doctor isn\'t using skinmap yet, send them to skinmap.com. Your question could bring skinmap to your entire practice — and to patients after you.',
+                    body: 'If your doctor isn\'t using skinmap yet, send them to skinmap.com. Your advocacy creates bottom-up adoption.',
                   },
                 ].map(({ step, title, body }) => (
                   <div key={step} className="rounded-2xl bg-cream border border-gray-200 p-6">

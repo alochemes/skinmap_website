@@ -109,8 +109,8 @@ const thesisCards: ThesisCard[] = [
 ];
 
 const milestones: Milestone[] = [
-  { text: 'Physicians onboarded across multiple clinical sites in initial deployment phase', done: false },
-  { text: 'Patient scans captured and longitudinally tracked across active clinical sites', done: false },
+  { text: '[X] physicians onboarded across [Y] clinical sites in initial deployment phase', done: false },
+  { text: '[X,000]+ patient scans captured and longitudinally tracked', done: false },
   { text: 'IRB-approved clinical validation study completed — submitted for peer review', done: true },
   { text: 'On the FDA De Novo pathway — regulatory strategy established with specialist counsel', done: true },
 ];
@@ -156,29 +156,54 @@ export function InvestorsPageClient() {
     <>
 
       {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <Section background="white" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <Section background="navy" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+
+        {/* Grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Sky-blue glow — right */}
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgb(3 192 222), transparent 70%)' }}
+          aria-hidden="true"
+        />
+        {/* Brand-blue glow — left */}
+        <div
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgb(39 24 129), transparent 70%)' }}
+          aria-hidden="true"
+        />
+
         <Container>
           <div className="max-w-3xl relative z-10">
             <FadeUp>
-              <div className="inline-flex items-center gap-3 bg-navy-500/5 border border-navy-500/15 rounded-2xl px-5 py-3 mb-8">
+              <div className="inline-flex items-center gap-3 bg-white/5 border border-white/15 rounded-2xl px-5 py-3 mb-8">
                 <span className="text-3xl font-extrabold text-coral">65M</span>
-                <span className="text-sm text-gray-600 leading-snug">
+                <span className="text-sm text-white/70 leading-snug">
                   primary care visits per year include a skin concern.
                   <br />
-                  <strong className="text-navy-500">Most go untracked.</strong>
+                  <strong className="text-white">Most go untracked.</strong>
                 </span>
               </div>
             </FadeUp>
             <FadeUp>
-              <SectionEyebrow>INVESTMENT OPPORTUNITY</SectionEyebrow>
+              <SectionEyebrow className="text-blue-300">INVESTMENT OPPORTUNITY</SectionEyebrow>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-navy-500 mt-4 mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white mt-4 mb-6">
                 The $20 Billion Dermatology Gap Has a Solution.
               </h1>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-lg text-navy-100 leading-relaxed mb-10 max-w-2xl">
                 There are fewer than 3,600 board-certified dermatologists for 330 million Americans —
                 and over 65 million primary care visits per year include a skin concern. skinmap
                 closes that access gap with app-based Total Body Photography — a 60-second full-body scan,
@@ -191,7 +216,7 @@ export function InvestorsPageClient() {
                   <Button variant="primary" size="lg">Request an Investor Briefing</Button>
                 </Link>
                 <Link href="#thesis">
-                  <Button variant="outline" size="lg">View Investment Thesis</Button>
+                  <Button variant="outline-white" size="lg">View Investment Thesis</Button>
                 </Link>
               </div>
             </FadeUp>
@@ -199,11 +224,11 @@ export function InvestorsPageClient() {
 
           {/* Hero stat strip */}
           <FadeUp delay={0.4}>
-            <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 pt-12 border-t border-gray-100 max-w-2xl">
+            <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 pt-12 border-t border-white/10 max-w-2xl">
               {heroStats.map((s) => (
                 <div key={s.label} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-coral mb-1">{s.value}</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider leading-snug">{s.label}</div>
+                  <div className="text-xs text-navy-200 uppercase tracking-wider leading-snug">{s.label}</div>
                 </div>
               ))}
             </div>

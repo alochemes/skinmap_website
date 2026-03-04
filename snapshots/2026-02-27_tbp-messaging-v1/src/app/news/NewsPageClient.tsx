@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Trophy, Mail, ArrowRight, ExternalLink } from 'lucide-react';
+import { Trophy, Download, Mail, ArrowRight, ExternalLink } from 'lucide-react';
 
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -58,29 +58,29 @@ const pressReleases: PressRelease[] = [
   },
 ];
 
-const mediaInquiries = [
-  { name: 'Clinical data briefings' },
-  { name: 'Executive interviews' },
-  { name: 'Product demonstrations' },
-  { name: 'IRB study details' },
-  { name: 'Physician case studies' },
-  { name: 'Press kit access' },
+const publications: Publication[] = [
+  { name: 'STAT News' },
+  { name: 'MedCity News' },
+  { name: 'Healthcare IT News' },
+  { name: 'TechCrunch Health' },
+  { name: 'Modern Healthcare' },
+  { name: 'Fierce Healthcare' },
 ];
 
-const milestones: Award[] = [
+const awards: Award[] = [
   {
-    title: 'IRB-Approved Clinical Validation Study',
-    issuer: 'Completed & submitted for peer review',
-    year: '2026',
+    title: 'Digital Health Innovation Award 2025',
+    issuer: 'Digital Health Summit',
+    year: '2025',
   },
   {
-    title: 'FDA De Novo Pathway',
-    issuer: 'Regulatory strategy established with specialist counsel',
-    year: 'Active',
+    title: 'Top AI Startup in Dermatology',
+    issuer: 'Medical AI Review',
+    year: '2025',
   },
   {
-    title: 'Seed Funding Round Closed',
-    issuer: 'Led by investors specializing in clinical AI and digital health',
+    title: 'Clinical AI Breakthrough',
+    issuer: 'Health Innovation Awards',
     year: '2025',
   },
 ];
@@ -118,21 +118,47 @@ export function NewsPageClient() {
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <Section
-        background="white"
+        background="navy"
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
       >
+        {/* Grid texture */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Green glow — top center */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full opacity-20 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgb(0 202 90), transparent 70%)' }}
+          aria-hidden="true"
+        />
+        {/* Brand-blue glow — bottom right */}
+        <div
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-25 blur-3xl pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgb(39 24 129), transparent 70%)' }}
+          aria-hidden="true"
+        />
+
         <Container>
           <div className="max-w-3xl relative z-10 text-center mx-auto">
             <FadeUp>
-              <SectionEyebrow>PRESS &amp; NEWS</SectionEyebrow>
+              <SectionEyebrow className="text-coral">
+                PRESS &amp; NEWS
+              </SectionEyebrow>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-navy-500 mt-4 mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white mt-4 mb-6">
                 skinmap in the News
               </h1>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
+              <p className="text-lg text-navy-200 leading-relaxed max-w-2xl mx-auto mb-10">
                 Press coverage, company announcements, and clinical milestones
                 as we build the future of dermatology diagnostics.
               </p>
@@ -146,7 +172,7 @@ export function NewsPageClient() {
                   </Button>
                 </Link>
                 <Link href="/contact?type=press">
-                  <Button variant="outline" size="md">
+                  <Button variant="outline-white" size="md">
                     Press Inquiry
                     <ExternalLink size={16} aria-hidden="true" />
                   </Button>
@@ -180,14 +206,14 @@ export function NewsPageClient() {
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">
                     {release.excerpt}
                   </p>
-                  <Link
-                    href="/contact?type=press"
+                  <a
+                    href="#"
                     className="inline-flex items-center gap-1.5 text-coral font-semibold text-sm hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral rounded"
-                    aria-label={`Press inquiry about: ${release.headline}`}
+                    aria-label={`Read more about: ${release.headline}`}
                   >
-                    Press Inquiry
+                    Read More
                     <ArrowRight size={14} aria-hidden="true" />
-                  </Link>
+                  </a>
                 </div>
               </FadeUp>
             ))}
@@ -195,57 +221,46 @@ export function NewsPageClient() {
         </Container>
       </Section>
 
-      {/* ── MEDIA INQUIRIES ───────────────────────────────────────────────── */}
+      {/* ── MEDIA COVERAGE ────────────────────────────────────────────────── */}
       <Section background="cream">
         <Container>
           <FadeUp className="text-center mb-12">
-            <SectionEyebrow>MEDIA RESOURCES</SectionEyebrow>
+            <SectionEyebrow>MEDIA COVERAGE</SectionEyebrow>
             <SectionHeadline className="mt-4 mb-4">
-              Available for Media Coverage
+              In the Media
             </SectionHeadline>
             <SectionSubtext className="mx-auto">
-              skinmap is available for interviews, clinical data briefings, and product
-              demonstrations. Contact our communications team to get started.
+              skinmap has been featured in leading medical, technology, and
+              health innovation publications.
             </SectionSubtext>
           </FadeUp>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {mediaInquiries.map((item, i) => (
-              <FadeUp key={item.name} delay={i * 0.07}>
+            {publications.map((pub, i) => (
+              <FadeUp key={pub.name} delay={i * 0.07}>
                 <div className="bg-white rounded-2xl p-6 shadow-card flex flex-col items-center justify-center gap-3 text-center min-h-[100px] hover:shadow-card-hover transition-all duration-300">
                   <p className="font-bold text-navy text-sm leading-snug">
-                    {item.name}
+                    {pub.name}
                   </p>
-                  <Badge variant="press">Available</Badge>
+                  <Badge variant="press">Feature</Badge>
                 </div>
               </FadeUp>
             ))}
           </div>
-
-          <FadeUp>
-            <div className="mt-8 text-center">
-              <Link href="/contact?type=press">
-                <Button variant="primary" size="md">
-                  Contact Press Team
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Button>
-              </Link>
-            </div>
-          </FadeUp>
         </Container>
       </Section>
 
-      {/* ── CLINICAL MILESTONES ────────────────────────────────────────────── */}
+      {/* ── AWARDS & RECOGNITION ──────────────────────────────────────────── */}
       <Section background="white">
         <Container>
           <FadeUp className="mb-12">
-            <SectionEyebrow>CLINICAL MILESTONES</SectionEyebrow>
-            <SectionHeadline className="mt-4">Progress to Date</SectionHeadline>
+            <SectionEyebrow>AWARDS & RECOGNITION</SectionEyebrow>
+            <SectionHeadline className="mt-4">Industry Recognition</SectionHeadline>
           </FadeUp>
 
           <div className="grid sm:grid-cols-3 gap-6">
-            {milestones.map((milestone, i) => (
-              <FadeUp key={milestone.title} delay={i * 0.1}>
+            {awards.map((award, i) => (
+              <FadeUp key={award.title} delay={i * 0.1}>
                 <div className="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-100 flex flex-col items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center shrink-0">
                     <Trophy
@@ -256,10 +271,10 @@ export function NewsPageClient() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-navy text-base leading-snug mb-1">
-                      {milestone.title}
+                      {award.title}
                     </h3>
-                    <p className="text-gray-500 text-sm mb-3">{milestone.issuer}</p>
-                    <Badge variant="outline">{milestone.year}</Badge>
+                    <p className="text-gray-500 text-sm mb-3">{award.issuer}</p>
+                    <Badge variant="outline">{award.year}</Badge>
                   </div>
                 </div>
               </FadeUp>
@@ -284,12 +299,12 @@ export function NewsPageClient() {
                 screenshots, company boilerplate, and clinical data fact sheet.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <Link href="/contact?type=press">
+                <a href="/skinmap-press-kit.zip" download>
                   <Button variant="primary" size="lg">
-                    <Mail size={18} aria-hidden="true" />
-                    Request Press Kit
+                    <Download size={18} aria-hidden="true" />
+                    Download Press Kit
                   </Button>
-                </Link>
+                </a>
                 <Link href="/contact?type=press">
                   <Button variant="outline-white" size="lg">
                     Request Interview

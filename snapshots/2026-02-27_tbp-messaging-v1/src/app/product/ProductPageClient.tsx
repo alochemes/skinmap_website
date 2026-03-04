@@ -268,24 +268,28 @@ export default function ProductPageClient() {
       {/* HERO                                                              */}
       {/* ================================================================ */}
       <section
-        className="relative pt-32 pb-20 overflow-hidden bg-white"
+        className="relative pt-32 pb-20 overflow-hidden bg-gradient-hero"
         aria-label="Product hero"
       >
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-coral/15 blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-blue/10 blur-3xl" />
+        </div>
         <Container className="relative z-10 text-center max-w-4xl mx-auto">
           <FadeUp>
             <Badge variant="new" className="mb-6">Total Body Photography · skinmap</Badge>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-500 tracking-tight leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
               Full-body skin scans.
               <br />
               <span className="text-coral">60 seconds. Any iPhone.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10">
-              skinmap brings Total Body Photography to any practice — an iPhone, 60 seconds, and no
-              additional hardware. No expensive equipment. No specialist training. Reimbursed by
+            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-10">
+              skinmap is a revolutionary approach to Total Body Photography — an inexpensive, mobile app
+              that eliminates the need for significant upfront capital and office space. Reimbursed by
               Medicare. HIPAA compliant. Patented technology.
             </p>
           </FadeUp>
@@ -295,7 +299,7 @@ export default function ProductPageClient() {
                 <Button variant="primary" size="lg">Request Information</Button>
               </Link>
               <Link href="#capture">
-                <Button variant="outline" size="lg">See How It Works <ArrowRight size={16} className="ml-2" /></Button>
+                <Button variant="ghost" size="lg" className="text-white border-white/20 hover:bg-white/10">See How It Works <ArrowRight size={16} className="ml-2" /></Button>
               </Link>
             </div>
           </FadeUp>
@@ -309,7 +313,7 @@ export default function ProductPageClient() {
                 { Icon: Smartphone, text: 'iPhone 12 Pro or Later' },
                 { Icon: Clock,      text: '~60 Second Scan' },
               ].map(({ Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-gray-500 bg-gray-50 rounded-full px-4 py-2 border border-gray-100">
+                <div key={text} className="flex items-center gap-2 text-sm text-gray-400 bg-white/5 rounded-full px-4 py-2 border border-white/10">
                   <Icon size={14} className="text-coral shrink-0" />
                   <span>{text}</span>
                 </div>
@@ -388,8 +392,8 @@ export default function ProductPageClient() {
                 </p>
                 <div className="bg-coral/5 border-l-4 border-coral rounded-r-xl p-5 mb-8">
                   <p className="text-navy font-medium text-sm sm:text-base leading-relaxed">
-                    Surface the slow, subtle progressions that written notes and memory were never
-                    designed to catch — and document them objectively.
+                    Catch the slow, subtle progressions that are impossible to track from written notes
+                    or a physician&apos;s recall alone — and document them objectively.
                   </p>
                 </div>
                 <ul className="space-y-3">
@@ -556,7 +560,7 @@ export default function ProductPageClient() {
               },
               {
                 q: 'Is skinmap being studied?',
-                a: 'Yes. skinmap has completed an IRB-approved clinical validation study conducted in collaboration with a leading academic dermatology program. Results have been submitted for peer review.',
+                a: 'Yes. skinmap is currently being tested in collaboration with a top medical research institution.',
               },
             ].map(({ q, a }) => (
               <FadeUp key={q}>
@@ -581,10 +585,10 @@ export default function ProductPageClient() {
         <Container className="relative z-10">
           <FadeUp className="text-center mb-12">
             <SectionEyebrow className="text-coral">Technology</SectionEyebrow>
-            <SectionHeadline className="text-white mt-2">Patented. HIPAA-Compliant. Medicare Reimbursed.</SectionHeadline>
+            <SectionHeadline className="text-white mt-2">More than smart technology.</SectionHeadline>
             <SectionSubtext className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              skinmap is built for clinical environments — capturing the full skin surface in about
-              60 seconds and enabling objective, visit-over-visit comparison on any iPhone.
+              skinmap is a transformational tool — empowering users to quickly and easily map the entire
+              skin surface and detect subtle changes that the naked eye can&apos;t.
             </SectionSubtext>
           </FadeUp>
 

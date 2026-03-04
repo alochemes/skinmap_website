@@ -82,8 +82,8 @@ const TRUST_ITEMS = [
   },
   {
     icon: Users,
-    title: 'Personal Response',
-    description: 'Every inquiry answered by the skinmap team',
+    title: 'Real Humans',
+    description: 'Every inquiry answered by our team',
   },
 ];
 
@@ -515,7 +515,7 @@ export function ContactPageClient() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="bg-white pt-32 pb-16 md:pt-40 md:pb-20 border-b border-gray-100">
+      <section className="bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
         <Container>
           <motion.div
             initial={prefersReducedMotion ? false : 'hidden'}
@@ -524,17 +524,17 @@ export function ContactPageClient() {
             className="max-w-3xl"
           >
             <motion.div variants={prefersReducedMotion ? {} : fadeUp}>
-              <SectionEyebrow>GET IN TOUCH</SectionEyebrow>
+              <SectionEyebrow className="text-blue-300">GET IN TOUCH</SectionEyebrow>
             </motion.div>
             <motion.h1
               variants={prefersReducedMotion ? {} : fadeUp}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-navy-500 mt-4 mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-white mt-4 mb-6"
             >
-              Let&apos;s Talk About What skinmap Can Do for Your Practice.
+              Let&apos;s Talk.
             </motion.h1>
             <motion.p
               variants={prefersReducedMotion ? {} : fadeUp}
-              className="text-lg text-gray-600 leading-relaxed max-w-2xl"
+              className="text-lg text-navy-100 leading-relaxed max-w-2xl"
             >
               Physician demo, investor inquiry, clinical partnership, or general question — we respond within one business day.
             </motion.p>

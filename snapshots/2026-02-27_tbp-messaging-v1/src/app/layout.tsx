@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | skinmap',
   },
   description:
-    'skinmap delivers full-body skin scans in about 60 seconds — using nothing but an iPhone. Medicare covered (CPT 96904). HIPAA compliant. Patented technology.',
+    'skinmap delivers full-body skin scans in about 60 seconds — using nothing but an iPhone. Medicare covered (CPT 96904). HIPAA compliant. Patented. Together, we can conquer skin cancer.',
   keywords: [
     'total body photography',
     'skin cancer detection',

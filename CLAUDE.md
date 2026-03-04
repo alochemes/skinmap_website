@@ -50,17 +50,24 @@ Key patient messaging:
 ## Design Direction
 
 ### Aesthetic
-Clean, light-dominant design with a professional medical authority feel. Warm skin-tone accent
-color makes skinmap visually distinctive in the medical AI space. Think: the credibility of
-a medical journal combined with the elegance of a consumer health app.
+Clean, white-dominant design with a professional medical authority feel. The brand indigo
+(`navy-500` #271881) anchors headlines, giving pages the authority of a clinical publication.
+Green CTAs (`coral` #00CA5A) and subtle cream alternating sections (`cream` #F2F5FF) break
+the white canvas without making it feel like a generic SaaS site. Think: Linear or shovels.ai
+precision — applied to a clinical AI product.
+
+**Hero direction (all pages):** White backgrounds with `text-navy-500` headings, `text-coral`
+accent word, `text-gray-600` body copy, and a solid `bg-navy` navbar at all scroll positions.
 
 ### Color Palette
 | Token | Hex | Usage |
 |---|---|---|
-| `navy` | `#0F1B35` | Primary brand, nav background, headings |
-| `coral` | `#E87B5A` | Primary CTA buttons, accent highlights, key callouts |
-| `blue` | `#4A89E8` | Secondary accent, links, badges |
-| `cream` | `#F8F6F3` | Section backgrounds (alternating) |
+| `navy` | `#0D0B28` | Primary brand, nav background, dark section backgrounds |
+| `navy-500` | `#271881` | Brand blue — gradient midpoint, nav accents, badges |
+| `coral` | `#00CA5A` | Primary CTA buttons, accent highlights, key callouts (token name legacy; color is green) |
+| `blue` | `#03C0DE` | Secondary accent, links, badges, sky-cyan highlights |
+| `teal` | `#0097A0` | Tertiary accent, status indicators |
+| `cream` | `#F2F5FF` | Section backgrounds (alternating) — cool barely-blue off-white |
 | `white` | `#FFFFFF` | Primary backgrounds |
 | `gray-900` | `#1A1A2E` | Primary body text |
 | `gray-500` | `#6B7280` | Secondary/supporting text |
@@ -249,6 +256,7 @@ This project uses a 5-agent workflow (slash commands in `.claude/commands/`):
 | `/06-ui-design [page]` | UI Design Agent | Audits and improves visual design — hierarchy, spacing, color, typography, motion | in-place code edits + design report |
 | `/07-ux-flow [page]` | UX Flow Agent | Audits user flows, scroll behavior, CTAs, dual physician/patient journey | in-place code edits + UX audit report |
 | `/08-fda-compliance [target]` | FDA Compliance Agent | Reviews all copy for FDA SaMD language — flags prohibited claims, rewrites for compliance | compliance report (edits require user confirmation) |
+| `/09-color-palette [page]` | Color Palette Agent | Audits current color scheme, benchmarks against medical AI peers, proposes 2 alternative palettes — implements only after user approval | palette audit report + optional tailwind.config.ts update |
 
 **Recommended workflow order:**
 1. Run `/01-research` → generates `research-brief.md` (design patterns)
@@ -259,6 +267,7 @@ This project uses a 5-agent workflow (slash commands in `.claude/commands/`):
 6. Run `/06-ui-design` to polish visual design
 7. Run `/07-ux-flow` to audit conversion paths and fix UX friction
 8. Run `/08-fda-compliance` before any public launch to review all medical claims
+9. Run `/09-color-palette` to audit and optionally replace the color palette with a more professional medical-grade scheme
 
 > **Note:** Steps 1 and 2 can be run in either order or in parallel — they are independent.
 > The page builder (`/04-build-page`) depends on both `copy-brief.md` and the design system.

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -12,6 +12,21 @@ import { Shield, Clock, Users, Twitter, Linkedin, CheckCircle, Mail } from 'luci
 import { Button } from '@/components/ui/Button';
 import { Section, SectionEyebrow } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
+import { analytics } from '@/lib/analytics';
+
+// ── Shared API helper ─────────────────────────────────────────────────────────
+
+async function postContact(payload: Record<string, unknown>): Promise<void> {
+  const res = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const json = await res.json().catch(() => ({}));
+    throw new Error((json as { error?: string }).error ?? 'Something went wrong. Please try again.');
+  }
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -22,6 +37,7 @@ interface TabConfig {
 
 interface FormProps {
   onSuccess: () => void;
+  onError: (msg: string) => void;
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -147,16 +163,21 @@ const physicianDemoSchema = z.object({
 
 type PhysicianDemoData = z.infer<typeof physicianDemoSchema>;
 
-function PhysicianDemoForm({ onSuccess }: FormProps) {
+function PhysicianDemoForm({ onSuccess, onError }: FormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<PhysicianDemoData>({ resolver: zodResolver(physicianDemoSchema) });
 
-  const onSubmit = async (_data: PhysicianDemoData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    onSuccess();
+  const onSubmit = async (data: PhysicianDemoData) => {
+    try {
+      await postContact({ type: 'physician_demo', ...data });
+      analytics.demoRequestSubmitted({ form_location: 'contact_page', specialty: data.specialty });
+      onSuccess();
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Something went wrong.');
+    }
   };
 
   return (
@@ -226,16 +247,21 @@ const partnershipSchema = z.object({
 
 type PartnershipData = z.infer<typeof partnershipSchema>;
 
-function PartnershipForm({ onSuccess }: FormProps) {
+function PartnershipForm({ onSuccess, onError }: FormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<PartnershipData>({ resolver: zodResolver(partnershipSchema) });
 
-  const onSubmit = async (_data: PartnershipData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    onSuccess();
+  const onSubmit = async (data: PartnershipData) => {
+    try {
+      await postContact({ type: 'partnership', ...data });
+      analytics.contactFormSubmitted({ inquiry_type: 'partnership', form_location: 'contact_page' });
+      onSuccess();
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Something went wrong.');
+    }
   };
 
   return (
@@ -292,16 +318,21 @@ const investorSchema = z.object({
 
 type InvestorData = z.infer<typeof investorSchema>;
 
-function InvestorForm({ onSuccess }: FormProps) {
+function InvestorForm({ onSuccess, onError }: FormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<InvestorData>({ resolver: zodResolver(investorSchema) });
 
-  const onSubmit = async (_data: InvestorData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    onSuccess();
+  const onSubmit = async (data: InvestorData) => {
+    try {
+      await postContact({ type: 'investor', ...data });
+      analytics.contactFormSubmitted({ inquiry_type: 'general', form_location: 'contact_page' });
+      onSuccess();
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Something went wrong.');
+    }
   };
 
   return (
@@ -351,16 +382,21 @@ const patientSchema = z.object({
 
 type PatientData = z.infer<typeof patientSchema>;
 
-function PatientForm({ onSuccess }: FormProps) {
+function PatientForm({ onSuccess, onError }: FormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<PatientData>({ resolver: zodResolver(patientSchema) });
 
-  const onSubmit = async (_data: PatientData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    onSuccess();
+  const onSubmit = async (data: PatientData) => {
+    try {
+      await postContact({ type: 'patient', ...data });
+      analytics.patientInquirySubmitted({ form_location: 'contact_page' });
+      onSuccess();
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Something went wrong.');
+    }
   };
 
   return (
@@ -411,16 +447,21 @@ const pressSchema = z.object({
 
 type PressData = z.infer<typeof pressSchema>;
 
-function PressForm({ onSuccess }: FormProps) {
+function PressForm({ onSuccess, onError }: FormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<PressData>({ resolver: zodResolver(pressSchema) });
 
-  const onSubmit = async (_data: PressData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    onSuccess();
+  const onSubmit = async (data: PressData) => {
+    try {
+      await postContact({ type: 'press', ...data });
+      analytics.contactFormSubmitted({ inquiry_type: 'press', form_location: 'contact_page' });
+      onSuccess();
+    } catch (err) {
+      onError(err instanceof Error ? err.message : 'Something went wrong.');
+    }
   };
 
   return (
@@ -481,34 +522,36 @@ export function ContactPageClient() {
 
   const [activeTab, setActiveTab] = useState<number>(initialTab);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [apiError, setApiError] = useState<string | null>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  // Reset submitted state when tab changes
+  // Reset state when tab changes
   useEffect(() => {
     setIsSubmitted(false);
+    setApiError(null);
   }, [activeTab]);
 
-  const handleSuccess = () => {
+  const handleSuccess = useCallback(() => {
+    setApiError(null);
     setIsSubmitted(true);
-  };
+  }, []);
+
+  const handleError = useCallback((msg: string) => {
+    setApiError(msg);
+  }, []);
 
   const renderForm = () => {
     if (isSubmitted) {
       return <SuccessState />;
     }
+    const props = { onSuccess: handleSuccess, onError: handleError };
     switch (activeTab) {
-      case 0:
-        return <PhysicianDemoForm onSuccess={handleSuccess} />;
-      case 1:
-        return <PartnershipForm onSuccess={handleSuccess} />;
-      case 2:
-        return <InvestorForm onSuccess={handleSuccess} />;
-      case 3:
-        return <PatientForm onSuccess={handleSuccess} />;
-      case 4:
-        return <PressForm onSuccess={handleSuccess} />;
-      default:
-        return <PhysicianDemoForm onSuccess={handleSuccess} />;
+      case 0: return <PhysicianDemoForm {...props} />;
+      case 1: return <PartnershipForm {...props} />;
+      case 2: return <InvestorForm {...props} />;
+      case 3: return <PatientForm {...props} />;
+      case 4: return <PressForm {...props} />;
+      default: return <PhysicianDemoForm {...props} />;
     }
   };
 
@@ -590,6 +633,11 @@ export function ContactPageClient() {
                   <h2 className="text-xl md:text-2xl font-bold text-navy mb-8 leading-snug">
                     {TABS[activeTab].headline}
                   </h2>
+                )}
+                {apiError && (
+                  <div className="mb-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {apiError}
+                  </div>
                 )}
                 {renderForm()}
               </motion.div>

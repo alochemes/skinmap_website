@@ -22,10 +22,6 @@ interface PressRelease {
   excerpt: string;
 }
 
-interface Publication {
-  name: string;
-}
-
 interface Award {
   title: string;
   issuer: string;

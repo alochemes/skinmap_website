@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import { useFeatureFlag } from '@/hooks/useFeatureFlag';
+import { FLAGS, HOMEPAGE_HERO_CTA_VARIANTS, type HomepageHeroCtaVariant } from '@/lib/flags';
 import {
   Camera,
   TrendingUp,
@@ -13,7 +15,6 @@ import {
   ArrowRight,
   Clock,
   FileText,
-  Users,
   Smartphone,
   BadgeCheck,
   DollarSign,
@@ -359,6 +360,12 @@ const partnerLogos = [
 // Page
 // ---------------------------------------------------------------------------
 export default function HomePage() {
+  const heroCtaVariant = useFeatureFlag(
+    FLAGS.HOMEPAGE_HERO_CTA,
+    'control',
+  ) as HomepageHeroCtaVariant;
+  const heroCta = HOMEPAGE_HERO_CTA_VARIANTS[heroCtaVariant] ?? HOMEPAGE_HERO_CTA_VARIANTS.control;
+
   return (
     <>
       {/* ================================================================== */}
@@ -397,10 +404,10 @@ export default function HomePage() {
               <FadeUp delay={0.3}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/contact?type=demo">
-                    <Button variant="primary" size="lg">Request a Demo</Button>
+                    <Button variant="primary" size="lg">{heroCta.physician}</Button>
                   </Link>
                   <Link href="/for-patients">
-                    <Button variant="outline" size="lg">For Patients</Button>
+                    <Button variant="outline" size="lg">{heroCta.patient}</Button>
                   </Link>
                 </div>
               </FadeUp>

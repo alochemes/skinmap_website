@@ -11,13 +11,11 @@ const BRAND  = '#271881';
 const WHITE  = '#FFFFFF';
 const GREEN  = '#00CA5A';
 const GREEN_DK = '#16A34A';
-const GREEN_MID = '#059669';
 const BORDER = '#E4E4E7';
 const G900   = '#111827';
 const G600   = '#4B5563';
 const G400   = '#9CA3AF';
 const LGREY  = '#F5F5F5';
-const DGREY  = '#374151';
 
 type Variant = {
   id: string;
@@ -410,7 +408,7 @@ export default function PalettePage() {
         <div style={{ background: WHITE, border: '1px solid #E4E4E7', borderRadius: 14, padding: '28px 36px', textAlign: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.05)' }}>
           <div style={{ fontWeight: 800, fontSize: 17, color: '#111827', marginBottom: 8 }}>Ready to implement?</div>
           <p style={{ color: '#6B7280', fontSize: 14, lineHeight: 1.65, maxWidth: 520, margin: '0 auto' }}>
-            Reply <strong style={{ color: '#111827' }}>approve A</strong> (White), <strong style={{ color: '#111827' }}>approve B</strong> (Light Grey), or <strong style={{ color: '#111827' }}>approve C</strong> (Green Tint) and I'll apply it to the real site at localhost:3001.
+            Reply <strong style={{ color: '#111827' }}>approve A</strong> (White), <strong style={{ color: '#111827' }}>approve B</strong> (Light Grey), or <strong style={{ color: '#111827' }}>approve C</strong> (Green Tint) and I&apos;ll apply it to the real site at localhost:3001.
           </p>
         </div>
 

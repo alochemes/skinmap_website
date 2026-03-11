@@ -1,6 +1,51 @@
 # skinmap — Marketing Website
 
-Public-facing website for **skinmap**, an AI-powered dermatology diagnostics company. Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
+> **"Every Mole. Every Patient. Every Visit."**
+
+skinmap is an AI-powered dermatology diagnostics company building an iPhone app that gives physicians clinical-grade AI in their pocket — tracking patient skin health over time and flagging suspicious lesions before they become dangerous.
+
+This repo is the **public marketing website** at [skinmap.com](https://skinmap.com).
+
+---
+
+## What We're Building
+
+| Audience | Goal | Primary CTA |
+|---|---|---|
+| **Physicians** (dermatologists, PCPs, family medicine) | Convert to demo requests | "Request a Demo" |
+| **Patients** | Empower them to ask their doctor about skinmap | "Ask Your Doctor About skinmap" |
+| **Investors / Partners** | Build institutional credibility | "Contact Our Team" |
+| **Press** | Establish media presence | Press kit / inquiry form |
+
+The website runs a **dual audience strategy** — every page speaks to both physicians and patients simultaneously. Patients drive bottom-up adoption pressure by asking their doctors about skinmap.
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Home — bold headline, app mockup, clinical evidence, testimonials |
+| `/product` | Product / Technology — AI engine, clinical workflow, accuracy metrics |
+| `/about` | About / Team — mission, founders, clinical advisors |
+| `/for-patients` | Patient-facing — **interactive doctor finder map**, FAQ, coverage request |
+| `/investors` | Investors / Partners — market opportunity, investment thesis |
+| `/news` | News / Press — press releases, media coverage, press kit |
+| `/contact` | Contact — segmented forms (Demo · Partnership · Investor · Patient · Press) |
+| `/legal/*` | Privacy Policy, Terms, Cookie Policy, HIPAA Notice |
+
+---
+
+## Doctor Finder Map
+
+The `/for-patients` page includes a live interactive map powered by **maplibre-gl** (no API key required — free CartoDB tiles). Patients can:
+
+- Search by doctor name, city, or practice
+- Filter by specialty (Dermatology / Primary Care / Family Medicine)
+- Click pins to see doctor profiles and call directly
+- Request skinmap coverage in their area
+
+> **Current state:** 23 mock providers across 15 U.S. cities. Wired to be replaced with a real database — see [Connecting Real Provider Data](#connecting-real-provider-data) below.
 
 ---
 
@@ -11,73 +56,143 @@ Public-facing website for **skinmap**, an AI-powered dermatology diagnostics com
 | Framework | Next.js 15 (App Router, TypeScript) |
 | Styling | Tailwind CSS v3 |
 | Animations | Framer Motion |
-| Icons | Lucide React |
-| Fonts | Inter via `next/font/google` |
-| Map | react-map-gl + maplibre-gl (CartoDB free tiles) |
+| Map | react-map-gl + maplibre-gl |
 | Forms | React Hook Form + Zod |
-| Email | Resend |
-| Analytics | GA4 via `@next/third-parties/google` |
-| Product Analytics | PostHog |
-| Error Monitoring | Sentry |
+| Email delivery | Resend |
+| Analytics | GA4 + PostHog |
+| Error monitoring | Sentry |
+| Feature flags / A/B | PostHog |
 | Deployment | Vercel |
 
 ---
 
-## Pages
+## Analytics Stack
 
-| Route | Purpose |
+We track everything through a single typed `analytics` wrapper — never raw `gtag()` or `posthog.capture()` calls.
+
+```ts
+// Example usage anywhere in the app
+import { analytics } from '@/lib/analytics';
+
+analytics.demoRequestSubmitted({ form_location: 'hero', specialty: 'Dermatology' });
+analytics.heroCtaClicked({ cta_label: 'Request a Demo', page: '/', audience: 'physician' });
+```
+
+### Key events we track
+
+| Event | When it fires |
 |---|---|
-| `/` | Home — physician conversion, dual physician/patient CTAs |
-| `/product` | Product / Technology — AI engine, clinical workflow |
-| `/about` | About / Team — mission, founders, advisors |
-| `/for-patients` | Patient-facing — doctor finder map, FAQ, request coverage |
-| `/investors` | Investors / Partners — market opportunity, thesis |
-| `/news` | News / Press — press releases, media coverage |
-| `/contact` | Contact — segmented forms (Demo, Partnership, Investor, Patient, Press) |
-| `/legal/privacy` | Privacy Policy |
-| `/legal/terms` | Terms of Service |
-| `/legal/cookies` | Cookie Policy |
-| `/legal/hipaa` | HIPAA Notice |
+| `demo_request_submitted` | Physician submits demo request form |
+| `contact_form_submitted` | Any contact form submitted |
+| `patient_inquiry_submitted` | Patient submits inquiry |
+| `hero_cta_clicked` | Hero CTA button clicked |
+| `doctor_search_submitted` | Patient searches for a doctor |
+| `doctor_profile_opened` | Patient opens a doctor card or pin |
+| `contact_doctor_clicked` | Patient clicks Call / Directions on a profile |
+
+Full event taxonomy: [`src/lib/analytics/events.ts`](src/lib/analytics/events.ts)
+
+### Providers
+
+| Tool | Purpose | Env var |
+|---|---|---|
+| **GA4** | Page views, UTM attribution, conversions | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
+| **PostHog** | Funnel analysis, session insights, feature flags | `NEXT_PUBLIC_POSTHOG_KEY` |
+| **Sentry** | Error monitoring, session replay on errors | `NEXT_PUBLIC_SENTRY_DSN` |
 
 ---
 
-## Getting Started
+## Feature Flags & A/B Tests
+
+Feature flags live in PostHog. Flag keys are defined in [`src/lib/flags/index.ts`](src/lib/flags/index.ts).
+
+| Flag | Type | What it tests |
+|---|---|---|
+| `homepage_hero_cta` | A/B (3 variants) | Hero CTA copy — "Request a Demo" vs "Get Early Access" vs "See It in Action" |
+| `homepage_patient_cta` | A/B | Patient CTA copy |
+| `doctor_map_rollout` | Boolean rollout | Gates the doctor finder map (10% → 50% → 100%) |
+| `doctor_finder_layout` | A/B | List-first vs map-first results layout |
+| `doctor_search_input` | A/B | Manual ZIP entry vs browser location autofill |
+
+---
+
+## Cookie Consent
+
+A GDPR-compatible cookie banner appears on first visit. Analytics are **off by default** until the user accepts. Uses Google Consent Mode v2 — the consent signal fires before GA4 loads.
+
+---
+
+## Contact Form → Email Routing
+
+All five contact form types POST to `/api/contact` and are routed to the right inbox via Resend:
+
+| Form | Goes to |
+|---|---|
+| Physician Demo | `demo@skinmap.com` |
+| Partnership | `partnerships@skinmap.com` |
+| Investor Inquiry | `investors@skinmap.com` |
+| Patient | `hello@skinmap.com` |
+| Press | `press@skinmap.com` |
+
+---
+
+## Local Development
 
 ```bash
+git clone https://github.com/alochemes/skinmap_website.git
+cd skinmap_website
 npm install
-cp .env.example .env.local   # fill in your keys
-npm run dev                  # http://localhost:3000
+cp .env.example .env.local   # add your keys
+npm run dev                   # → http://localhost:3000
 ```
+
+### Required env vars to develop locally
+
+Most of the site works without any keys. To test specific features:
+
+| Feature | Key needed |
+|---|---|
+| Contact form email delivery | `RESEND_API_KEY` |
+| GA4 analytics | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
+| PostHog analytics + flags | `NEXT_PUBLIC_POSTHOG_KEY` |
+| Sentry error monitoring | `NEXT_PUBLIC_SENTRY_DSN` |
+
+Full list: [`.env.example`](.env.example)
 
 ---
 
-## Environment Variables
+## Deployment
 
-See [.env.example](.env.example) for the full list. Key variables:
+Hosted on **Vercel**. Every push to `main` auto-deploys to production. Pull requests get preview deployments automatically.
 
-```bash
-# Email delivery (Resend)
-RESEND_API_KEY=re_XXXXXXXXXX
-EMAIL_DEMO_INBOX=demo@skinmap.com
-EMAIL_PARTNERSHIPS_INBOX=partnerships@skinmap.com
-EMAIL_INVESTORS_INBOX=investors@skinmap.com
-EMAIL_GENERAL_INBOX=hello@skinmap.com
-EMAIL_PRESS_INBOX=press@skinmap.com
+**Environment variable setup in Vercel:**
+1. Go to Vercel → Project → Settings → Environment Variables
+2. Add all keys from `.env.example`
+3. Set `NEXT_PUBLIC_APP_ENV=production` for Production, `staging` for Preview
+4. Set `NEXT_PUBLIC_SITE_URL=https://skinmap.com` for Production
 
-# Analytics
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_POSTHOG_KEY=phc_XXXXXXXXXX
-NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
+> `NEXT_PUBLIC_*` variables are baked into the client bundle at build time — they must exist before the build runs.
 
-# Error monitoring
-NEXT_PUBLIC_SENTRY_DSN=https://...@....ingest.sentry.io/...
-SENTRY_ORG=skinmap
-SENTRY_PROJECT=skinmap-web
+---
 
-# Environment + canonical URL
-NEXT_PUBLIC_APP_ENV=development
-NEXT_PUBLIC_SITE_URL=https://skinmap.com
-```
+## Connecting Real Provider Data
+
+The doctor finder currently uses 23 hardcoded providers in [`src/data/providers.ts`](src/data/providers.ts).
+
+To connect a real database:
+
+1. Add a Postgres table:
+   ```sql
+   CREATE TABLE providers (
+     id TEXT PRIMARY KEY,
+     name TEXT, specialty TEXT, practice TEXT,
+     city TEXT, state TEXT, lat FLOAT, lng FLOAT,
+     phone TEXT, accepting BOOLEAN
+   );
+   ```
+2. Create an API route at `/api/providers?search=&specialty=&lat=&lng=`
+3. Replace the static import in `ForPatientsPageClient.tsx` with a `fetch()` call
+4. Use the `doctor_map_rollout` PostHog flag to gate the live map during rollout
 
 ---
 
@@ -85,165 +200,33 @@ NEXT_PUBLIC_SITE_URL=https://skinmap.com
 
 ```
 src/
-├── app/
-│   ├── layout.tsx                 # Root layout (Navbar, Footer, PostHogProvider, CookieBanner, GA4)
-│   ├── page.tsx                   # Home page
-│   ├── sitemap.ts                 # Auto-generated sitemap.xml
-│   ├── robots.ts                  # Auto-generated robots.txt
-│   ├── for-patients/              # Patient-facing page + doctor finder map
-│   ├── product/                   # Product / Technology
-│   ├── about/                     # About / Team
-│   ├── investors/                 # Investors / Partners
-│   ├── news/                      # News / Press
-│   ├── contact/                   # Contact (segmented forms)
-│   ├── legal/                     # Privacy, Terms, Cookies, HIPAA
-│   └── api/
-│       └── contact/route.ts       # POST handler — routes form to Resend by type
+├── app/                    # Next.js App Router pages + API routes
+│   ├── api/contact/        # POST handler → Resend email routing
+│   ├── for-patients/       # Doctor finder map page
+│   ├── sitemap.ts          # Auto-generated sitemap.xml
+│   └── robots.ts           # Auto-generated robots.txt
 ├── components/
-│   ├── ui/
-│   │   ├── Button.tsx
-│   │   ├── Badge.tsx
-│   │   ├── Card.tsx
-│   │   ├── CookieBanner.tsx       # Phase 3 consent banner
-│   │   └── ProviderMap.tsx        # Doctor finder map (maplibre-gl)
-│   ├── sections/
-│   ├── providers/
-│   │   └── PostHogProvider.tsx    # PostHog init + App Router pageview tracking
-│   └── layout/
-│       ├── Navbar.tsx
-│       └── Footer.tsx
+│   ├── ui/                 # Buttons, badges, cards, CookieBanner, ProviderMap
+│   ├── providers/          # PostHogProvider (App Router pageview tracking)
+│   └── layout/             # Navbar, Footer
 ├── data/
-│   └── providers.ts               # Mock provider data (23 doctors — replace with DB)
+│   └── providers.ts        # Mock provider data (replace with DB)
 ├── hooks/
-│   ├── useConsent.ts              # Cookie consent state (localStorage)
-│   └── useFeatureFlag.ts          # PostHog feature flag hook (SSR-safe)
+│   ├── useConsent.ts       # Cookie consent state
+│   └── useFeatureFlag.ts   # PostHog feature flag hook (SSR-safe)
 └── lib/
-    ├── analytics/
-    │   ├── events.ts              # Full typed event taxonomy (13 events)
-    │   ├── index.ts               # track() wrapper — GA4 + PostHog + consent gate
-    │   └── posthog.ts             # PostHog client init
-    ├── flags/
-    │   └── index.ts               # Feature flag keys + variant maps
-    └── utils.ts
+    ├── analytics/          # track() wrapper, event taxonomy, PostHog client
+    └── flags/              # Feature flag keys + variant maps
 ```
 
 ---
 
-## Analytics Architecture
+## Brand
 
-All analytics flow through a single `track()` function — never call `gtag()` or `posthog.capture()` directly.
+- **Name**: always lowercase — **skinmap**
+- **Primary color**: Navy `#0D0B28`
+- **Brand accent**: `#271881`
+- **CTA green**: `#00CA5A` (token: `coral` — legacy name)
+- **Font**: Inter
 
-```ts
-import { analytics } from '@/lib/analytics';
-
-analytics.demoRequestSubmitted({ form_location: 'hero', specialty: 'Dermatology' });
-analytics.heroCtaClicked({ cta_label: 'Request a Demo', page: '/', audience: 'physician' });
-```
-
-### Event taxonomy
-
-Defined in `src/lib/analytics/events.ts`. Key events:
-
-| Event | When |
-|---|---|
-| `demo_request_submitted` | Physician demo form submit |
-| `contact_form_submitted` | Any contact form submit |
-| `patient_inquiry_submitted` | Patient form submit |
-| `hero_cta_clicked` | Hero CTA button click |
-| `doctor_search_submitted` | Doctor finder search |
-| `doctor_profile_opened` | Doctor card/pin click |
-| `map_pin_clicked` | Map marker click |
-| `contact_doctor_clicked` | Call/directions click on doctor profile |
-
-### Providers
-
-| Provider | Purpose | Config |
-|---|---|---|
-| GA4 | Page views, UTM attribution, conversions | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
-| PostHog | Funnel analysis, session insights, feature flags | `NEXT_PUBLIC_POSTHOG_KEY` |
-| Sentry | Error monitoring, session replay (errors only) | `NEXT_PUBLIC_SENTRY_DSN` |
-
-### Consent (Phase 3)
-
-Google Consent Mode v2 defaults to `analytics_storage: 'denied'` before the GA4 script loads. PostHog starts opted out. The `CookieBanner` component (bottom of every page) calls `setAnalyticsConsent(true/false)` which updates both providers simultaneously. Preference persisted in `localStorage`.
-
----
-
-## Feature Flags (Phase 5)
-
-Feature flags are managed in PostHog. Flag keys are defined in `src/lib/flags/index.ts`.
-
-| Flag key | Type | Description |
-|---|---|---|
-| `homepage_hero_cta` | Multivariate | A/B test hero CTA copy (3 variants) |
-| `homepage_patient_cta` | Multivariate | A/B test patient CTA copy |
-| `doctor_map_rollout` | Boolean | % rollout of doctor finder map |
-| `doctor_finder_layout` | Multivariate | list-first vs map-first results |
-| `doctor_search_input` | Multivariate | manual ZIP vs location autofill |
-
-```ts
-import { useFeatureFlag } from '@/hooks/useFeatureFlag';
-import { FLAGS } from '@/lib/flags';
-
-const variant = useFeatureFlag(FLAGS.HOMEPAGE_HERO_CTA, 'control');
-```
-
-Always provide a `defaultValue` matching the control variant — ensures correct render before PostHog loads.
-
----
-
-## Contact Form API
-
-`POST /api/contact` — accepts JSON with a `type` discriminator. Routes each type to the correct inbox via Resend.
-
-| type | Destination |
-|---|---|
-| `physician_demo` | `EMAIL_DEMO_INBOX` |
-| `partnership` | `EMAIL_PARTNERSHIPS_INBOX` |
-| `investor` | `EMAIL_INVESTORS_INBOX` |
-| `patient` | `EMAIL_GENERAL_INBOX` |
-| `press` | `EMAIL_PRESS_INBOX` |
-
----
-
-## Doctor Finder Map
-
-The doctor finder lives at `/for-patients`. Current data is mocked in `src/data/providers.ts` (23 providers, 15 U.S. cities).
-
-**To connect real data:**
-1. Replace `src/data/providers.ts` with a fetch to `/api/providers`
-2. Add a Postgres table with `id, name, specialty, practice, lat, lng, phone, accepting`
-3. Add query params: `?search=&specialty=&lat=&lng=` for server-side filtering + distance sort
-4. Use the `doctor_map_rollout` PostHog flag to gate the feature during rollout
-
-**Map tiles:** Free CartoDB Dark Matter GL — no API key required.
-
----
-
-## Deployment
-
-Deployed on Vercel. Set environment variables in **Vercel → Project → Settings → Environment Variables**:
-
-- `NEXT_PUBLIC_*` vars are baked into the client bundle at build time — must be set before building
-- Server-only vars (`RESEND_API_KEY`, `SENTRY_*`) are read at request time
-- Set `NEXT_PUBLIC_APP_ENV=production` for Production, `staging` for Preview branches
-
-```bash
-# Production build check
-npm run build
-```
-
----
-
-## Roadmap Completed
-
-| Phase | Description | Status |
-|---|---|---|
-| Phase 1 | Foundation — event taxonomy, analytics wrapper, env config | ✅ |
-| Phase 2 | Marketing analytics — GA4, page views, UTM attribution, form tracking | ✅ |
-| Phase 3 | Privacy / Consent — cookie banner, Google Consent Mode v2 | ✅ |
-| Phase 4 | Product analytics — PostHog, pageview tracking, funnel events | ✅ |
-| Phase 5 | Experimentation — feature flags, A/B tests via PostHog | ✅ |
-| Phase 6 | Observability — Sentry error monitoring + session replay | ✅ |
-| Prod #1 | Form delivery — Resend email routing for all 5 form types | ✅ |
-| Prod #2 | SEO — sitemap.xml + robots.txt | ✅ |
+Full brand guide in [`CLAUDE.md`](CLAUDE.md).

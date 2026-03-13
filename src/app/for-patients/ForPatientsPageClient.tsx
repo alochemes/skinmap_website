@@ -429,7 +429,7 @@ export function ForPatientsPageClient() {
             <SectionHeadline className="text-navy mt-2 max-w-2xl mx-auto">
               Your doctor sees your skin for 5 minutes.
               <br />
-              <span className="text-coral">skinmap tracks it forever.</span>
+              <span className="text-coral">skinmap builds the record between visits.</span>
             </SectionHeadline>
             <SectionSubtext className="mx-auto mt-4">
               Most skin exams are visual, single-visit, and undocumented. skinmap changes that —

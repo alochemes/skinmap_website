@@ -221,6 +221,19 @@ src/
 
 ---
 
+## Compliance & Copy Audit Log
+
+All compliance reviews are timestamped and stored in [`docs/compliance/`](docs/compliance/).
+
+| Date | Document | Summary |
+|---|---|---|
+| 2026-03-12 | [Copy Audit](docs/compliance/2026-03-12-copy-audit.md) | Full copy review vs `copy-brief.md` — 5 critical issues, 6 high priority. Product page missing clinical validation section. 80%/90% opt-in stat inconsistency flagged. |
+| 2026-03-12 | [FDA Compliance](docs/compliance/2026-03-12-fda-compliance.md) | 17 SaMD compliance issues. 6 HIGH priority fixed in code. Key: removed superiority claims, "forever" warranty, pre-clearance diagnostic language. Intended use statement + pre-clearance disclaimer required before launch. |
+
+> **Regulatory counsel review required before public launch.** See the FDA compliance report for the full recommended action list. This review is not legal advice.
+
+---
+
 ## Brand
 
 - **Name**: always lowercase — **skinmap**

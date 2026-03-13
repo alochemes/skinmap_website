@@ -240,7 +240,7 @@ const howItWorksSteps = [
     Icon: Camera,
     title: 'Capture',
     description:
-      'Your MA or nurse uses a standard iPhone. Full-body scan done in ~60 seconds. No specialist training. No special room.',
+      'Your MA or nurse uses a standard iPhone. Full-body scan done in ~90 seconds. No specialist training. No special room.',
   },
   {
     number: '02',
@@ -251,10 +251,17 @@ const howItWorksSteps = [
   },
   {
     number: '03',
-    Icon: CheckCircle2,
-    title: 'Act Early',
+    Icon: LayoutDashboard,
+    title: 'Manage',
     description:
-      'New or evolving spots are flagged for physician review. Stage I vs. Stage IV — the difference is acting early.',
+      'Every patient. Full scan history. Flagged lesions. Due for follow-up. All in one view — searchable, filterable, actionable.',
+  },
+  {
+    number: '04',
+    Icon: DollarSign,
+    title: 'Reimburse',
+    description:
+      'CPT 96904 covers eligible patients. skinmap auto-generates Medicare claim documentation. Add a reimbursed service to your existing workflow.',
   },
 ] as const;
 
@@ -264,7 +271,7 @@ const appFeatures = [
     eyebrow: 'Full-Body Capture',
     title: 'A complete skin map in ~60 seconds.',
     description:
-      'Any MA or nurse. One iPhone. About one minute. Over 90% of patients opt in when offered.',
+      'Any MA or nurse. One iPhone. About one minute. Over 90% of patients opted in during our clinical pilot program.',
     callout: 'Conventional TBP systems cost tens of thousands. skinmap starts at ~$1,400.',
     icon: Camera,
   },
@@ -306,9 +313,9 @@ const practiceStats = [
   },
   {
     label: 'Patient opt-in',
-    value: 80,
+    value: 90,
     suffix: '%',
-    context: 'Patients opt-in when offered as part of routine care.',
+    context: 'Patient opt-in rate in our clinical pilot program.',
   },
   {
     label: 'Starting cost',
@@ -388,9 +395,9 @@ export default function HomePage() {
 
               <FadeUp delay={0.1}>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-navy-500 tracking-tight leading-[1.05] mb-6">
-                  See What Changed.
+                  Every Mole.
                   <br />
-                  <span className="text-coral">Catch It Early.</span>
+                  Every Patient. <span className="text-coral">Every Visit.</span>
                 </h1>
               </FadeUp>
 
@@ -520,30 +527,50 @@ export default function HomePage() {
             </SectionSubtext>
           </FadeUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorksSteps.map(({ number, Icon, title, description }, i) => (
-              <FadeUp key={number} delay={i * 0.1}>
-                <div className="relative group">
-                  {/* Connector line (desktop) */}
-                  {i < howItWorksSteps.length - 1 && (
-                    <div
-                      className="hidden md:block absolute top-10 left-[calc(50%+3rem)] right-[calc(-50%+3rem)] h-px bg-gradient-to-r from-coral/40 to-transparent"
-                      aria-hidden="true"
-                    />
-                  )}
-                  <div className="text-center">
-                    <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full bg-coral/10 border-2 border-coral/30 mb-6 group-hover:bg-coral/20 transition-colors">
-                      <Icon size={28} className="text-coral" />
-                      <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-coral text-white text-xs font-bold flex items-center justify-center">
-                        {number}
-                      </span>
+          {/* Step track */}
+          <div className="relative">
+
+            {/* Desktop: horizontal grey line threading through all dots */}
+            <div
+              className="hidden md:block absolute top-[18px] left-[calc(12.5%)] right-[calc(12.5%)] h-px bg-gray-200"
+              aria-hidden="true"
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-6">
+              {howItWorksSteps.map(({ number, Icon, title, description }, i) => (
+                <FadeUp key={number} delay={i * 0.12}>
+
+                  {/* Mobile: vertical timeline layout */}
+                  <div className="relative flex md:flex-col md:items-center gap-5 md:gap-0 md:text-center pb-10 md:pb-0">
+
+                    {/* Mobile: grey vertical connector to next step */}
+                    {i < howItWorksSteps.length - 1 && (
+                      <div
+                        className="md:hidden absolute left-[17px] top-10 bottom-0 w-px bg-gray-200"
+                        aria-hidden="true"
+                      />
+                    )}
+
+                    {/* Dot node */}
+                    <div className="relative z-10 shrink-0 w-9 h-9 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center md:mb-6">
+                      <Icon size={15} className="text-gray-400" aria-hidden="true" />
                     </div>
-                    <h3 className="text-xl font-bold text-navy mb-3">{title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{description}</p>
+
+                    {/* Content */}
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-300 mb-1.5">
+                        {number}
+                      </p>
+                      <h3 className="text-base font-bold text-navy mb-2 uppercase tracking-wide">
+                        {title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+                    </div>
+
                   </div>
-                </div>
-              </FadeUp>
-            ))}
+                </FadeUp>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>

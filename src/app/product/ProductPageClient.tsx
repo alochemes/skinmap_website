@@ -292,7 +292,7 @@ export default function ProductPageClient() {
           <FadeUp delay={0.3}>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact?type=demo">
-                <Button variant="primary" size="lg">Request Information</Button>
+                <Button variant="primary" size="lg">Request a Demo</Button>
               </Link>
               <Link href="#capture">
                 <Button variant="outline" size="lg">See How It Works <ArrowRight size={16} className="ml-2" /></Button>
@@ -354,7 +354,7 @@ export default function ProductPageClient() {
                     'High-resolution images with real-time feedback',
                     'No extra office space or specialty hardware needed',
                     'Medical assistants and nurses can perform skinmaps',
-                    'Over 90% of patients opt in when offered',
+                    'Over 90% of patients opted in during our clinical pilot program',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-gray-600 text-sm">
                       <CheckCircle2 size={16} className="text-coral shrink-0 mt-0.5" />
@@ -540,7 +540,7 @@ export default function ProductPageClient() {
               },
               {
                 q: 'Do patients like it?',
-                a: 'Over 90% of patients opt in when offered skinmap. Patients consistently describe it as fast, easy, and reassuring.',
+                a: 'Over 90% of patients opted in when offered skinmap during our clinical pilot program. Patients consistently describe it as fast, easy, and reassuring.',
               },
               {
                 q: 'Is it covered by insurance?',
@@ -598,7 +598,7 @@ export default function ProductPageClient() {
               {
                 Icon: GitCompareArrows,
                 title: 'AI-Backed Detection',
-                desc: "Our cutting-edge, AI-backed technology empowers users to detect subtle changes the naked eye can't.",
+                desc: "AI-assisted comparison designed to surface subtle morphological changes that may be difficult to detect from written notes or visit recall alone.",
               },
               {
                 Icon: Shield,
@@ -660,7 +660,7 @@ export default function ProductPageClient() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact?type=demo">
                 <Button size="lg" className="bg-navy text-white hover:bg-navy-800">
-                  Request Information <ArrowRight size={16} className="ml-2" />
+                  Request a Demo <ArrowRight size={16} className="ml-2" />
                 </Button>
               </Link>
               <Link href="/for-patients">

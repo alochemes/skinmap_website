@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | skinmap',
-  description: 'How skinmap collects, uses, and protects your information.',
+  title: 'Privacy Policy | Skinmap',
+  description: 'How Skinmap collects, uses, and protects your information.',
 };
 
 const sections = [
   {
     title: '1. Information We Collect',
-    body: `skinmap collects information you provide directly, such as name, email address, medical specialty, and practice information when you request a demo, contact our team, or register for early access. We also collect usage data and analytics to improve our platform. We do not collect or store patient health information through this website.`,
+    body: `Skinmap collects information you provide directly, such as name, email address, medical specialty, and practice information when you request a demo, contact our team, or register for early access. We also collect usage data and analytics to improve our platform. We do not collect or store patient health information through this website.`,
   },
   {
     title: '2. How We Use Your Information',
@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: '3. Protected Health Information (PHI)',
-    body: `The skinmap clinical platform handles Protected Health Information (PHI) in full compliance with HIPAA. PHI is encrypted using AES-256 encryption in transit and at rest. Business Associate Agreements (BAAs) are executed with all covered entities prior to PHI access. This website does not collect or transmit PHI.`,
+    body: `The Skinmap clinical platform handles Protected Health Information (PHI) in full compliance with HIPAA. PHI is encrypted using AES-256 encryption in transit and at rest. Business Associate Agreements (BAAs) are executed with all covered entities prior to PHI access. This website does not collect or transmit PHI.`,
   },
   {
     title: '4. Cookies and Tracking',
@@ -30,15 +30,15 @@ const sections = [
   },
   {
     title: '6. Data Retention',
-    body: `We retain personal information collected through this website for as long as necessary to provide our services and comply with legal obligations. You may request deletion of your information at any time by contacting privacy@skinmap.com.`,
+    body: `We retain personal information collected through this website for as long as necessary to provide our services and comply with legal obligations. You may request deletion of your information at any time by contacting privacy@Skinmap.com.`,
   },
   {
     title: '7. Your Rights',
-    body: `You have the right to access, correct, or delete your personal information. To exercise these rights, contact us at privacy@skinmap.com. We will respond within 30 days. Residents of certain jurisdictions may have additional rights under applicable privacy law.`,
+    body: `You have the right to access, correct, or delete your personal information. To exercise these rights, contact us at privacy@Skinmap.com. We will respond within 30 days. Residents of certain jurisdictions may have additional rights under applicable privacy law.`,
   },
   {
     title: '8. Contact',
-    body: `For privacy-related questions or to exercise your data rights, contact us at privacy@skinmap.com. For questions about our clinical platform's HIPAA compliance, see our HIPAA Notice.`,
+    body: `For privacy-related questions or to exercise your data rights, contact us at privacy@Skinmap.com. For questions about our clinical platform's HIPAA compliance, see our HIPAA Notice.`,
   },
 ];
 
@@ -62,9 +62,9 @@ export default function PrivacyPage() {
       <div className="bg-white py-16 md:py-24">
         <Container narrow>
           <p className="text-gray-600 leading-relaxed mb-10 text-lg">
-            skinmap is committed to protecting your privacy and the confidentiality of your information.
+            Skinmap is committed to protecting your privacy and the confidentiality of your information.
             This Privacy Policy explains how we collect, use, and safeguard information when you visit
-            skinmap.com or interact with our team.
+            Skinmap.com or interact with our team.
           </p>
 
           <div className="space-y-10">

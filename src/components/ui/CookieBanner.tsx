@@ -1,7 +1,7 @@
 'use client';
 
 // ---------------------------------------------------------------------------
-// CookieBanner — skinmap Phase 3
+// CookieBanner — Skinmap Phase 3
 // Shown once to new visitors until they accept or decline.
 // On accept:  analytics enabled (GA4 + PostHog)
 // On decline: analytics remain disabled
@@ -34,7 +34,7 @@ export function CookieBanner() {
           <div className="mx-auto max-w-4xl bg-navy rounded-2xl shadow-2xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
             {/* Text */}
             <p className="text-sm text-gray-300 leading-relaxed flex-1">
-              We use analytics cookies to understand how visitors use skinmap.com so we can
+              We use analytics cookies to understand how visitors use Skinmap.com so we can
               improve the experience.{' '}
               <Link
                 href="/legal/cookies"

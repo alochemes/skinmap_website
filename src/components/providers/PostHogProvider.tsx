@@ -1,7 +1,7 @@
 'use client';
 
 // ---------------------------------------------------------------------------
-// PostHogProvider — skinmap Phase 4
+// PostHogProvider — Skinmap Phase 4
 // Initializes PostHog and tracks Next.js App Router page views on navigation.
 // Wrap the root layout body with this component.
 // ---------------------------------------------------------------------------

@@ -22,7 +22,17 @@
       "Bash(git add src/app/for-patients/ForPatientsPageClient.tsx)",
       "Bash(git commit:*)",
       "Bash(git add \"Logo Icon \\(3\\).png\" public/images/logo-icon.png src/app/icon.png src/components/layout/Navbar.tsx src/components/layout/Footer.tsx)",
-      "Bash(git add tailwind.config.ts src/styles/globals.css src/components/ui/ProviderMap.tsx src/app/product/ProductPageClient.tsx src/app/investors/InvestorsPageClient.tsx src/app/news/NewsPageClient.tsx src/app/about/AboutPageClient.tsx)"
+      "Bash(git add tailwind.config.ts src/styles/globals.css src/components/ui/ProviderMap.tsx src/app/product/ProductPageClient.tsx src/app/investors/InvestorsPageClient.tsx src/app/news/NewsPageClient.tsx src/app/about/AboutPageClient.tsx)",
+      "WebFetch(domain:www.skinio.com)",
+      "WebFetch(domain:www.dermengine.com)",
+      "WebFetch(domain:www.canfieldsci.com)",
+      "WebFetch(domain:www.dermasensor.com)",
+      "WebFetch(domain:www.epic.com)",
+      "WebFetch(domain:dermengine.com)",
+      "WebFetch(domain:www.shovels.ai)",
+      "Bash(npm install:*)",
+      "Bash(gh auth:*)",
+      "WebFetch(domain:posthog.com)"
     ]
   }
 }

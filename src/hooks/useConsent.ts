@@ -1,7 +1,7 @@
 'use client';
 
 // ---------------------------------------------------------------------------
-// useConsent — skinmap Phase 3
+// useConsent — Skinmap Phase 3
 // Reads and writes the user's analytics consent choice.
 // Stored in localStorage so it persists across sessions.
 // ---------------------------------------------------------------------------
@@ -11,7 +11,7 @@ import { setAnalyticsConsent } from '@/lib/analytics';
 
 type ConsentState = 'granted' | 'denied' | 'pending';
 
-const STORAGE_KEY = 'skinmap_analytics_consent';
+const STORAGE_KEY = 'Skinmap_analytics_consent';
 
 function readStoredConsent(): ConsentState {
   if (typeof window === 'undefined') return 'pending';

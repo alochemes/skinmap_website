@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | skinmap',
-  description: 'How skinmap uses cookies and similar tracking technologies.',
+  title: 'Cookie Policy | Skinmap',
+  description: 'How Skinmap uses cookies and similar tracking technologies.',
 };
 
 const cookieTypes = [
@@ -35,7 +35,7 @@ const sections = [
   },
   {
     title: 'How We Use Cookies',
-    body: `skinmap.com uses cookies for three purposes: (1) to ensure the website functions correctly (strictly necessary); (2) to understand how visitors use the site so we can improve it (analytics); and (3) to remember your preferences (functional). We do not use cookies for advertising or behavioral tracking.`,
+    body: `Skinmap.com uses cookies for three purposes: (1) to ensure the website functions correctly (strictly necessary); (2) to understand how visitors use the site so we can improve it (analytics); and (3) to remember your preferences (functional). We do not use cookies for advertising or behavioral tracking.`,
   },
   {
     title: 'Third-Party Cookies',
@@ -47,11 +47,11 @@ const sections = [
   },
   {
     title: 'Do Not Track',
-    body: `Some browsers include a "Do Not Track" feature that sends a signal to websites requesting that your browsing activity not be tracked. skinmap.com respects Do Not Track signals and will not use analytics cookies when this signal is detected.`,
+    body: `Some browsers include a "Do Not Track" feature that sends a signal to websites requesting that your browsing activity not be tracked. Skinmap.com respects Do Not Track signals and will not use analytics cookies when this signal is detected.`,
   },
   {
     title: 'Updates to This Policy',
-    body: `We may update this Cookie Policy as we add or remove services. The date at the top of this page reflects the most recent update. Continued use of skinmap.com following an update constitutes acceptance of the revised policy.`,
+    body: `We may update this Cookie Policy as we add or remove services. The date at the top of this page reflects the most recent update. Continued use of Skinmap.com following an update constitutes acceptance of the revised policy.`,
   },
 ];
 

@@ -73,13 +73,13 @@ const timeline: TimelineItem[] = [
   {
     year: '2024',
     event:
-      'skinmap founded — first prototype built on clinical dermoscopy research and iPhone camera APIs.',
+      'Skinmap founded — first prototype built on clinical dermoscopy research and iPhone camera APIs.',
     colorClass: 'border-blue',
   },
   {
     year: '2025',
     event:
-      'Clinical research partnership established with top medical institution. skinmap currently being tested in collaboration with leading academic researchers.',
+      'Clinical research partnership established with top medical institution. Skinmap currently being tested in collaboration with leading academic researchers.',
     colorClass: 'border-navy',
   },
   {
@@ -94,7 +94,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Dr. Alex Rivera',
     title: 'Co-Founder & CEO',
-    bio: 'Physician-turned-founder. Saw the skin cancer detection gap firsthand and built skinmap to close it.',
+    bio: 'Physician-turned-founder. Saw the skin cancer detection gap firsthand and built Skinmap to close it.',
     initials: 'AR',
     bgClass: 'bg-navy',
   },
@@ -108,7 +108,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Dr. Maya Patel',
     title: 'Chief Medical Officer',
-    bio: 'Board-certified dermatologist, 15 years of clinical practice. Principal investigator on skinmap\'s IRB validation study.',
+    bio: 'Board-certified dermatologist, 15 years of clinical practice. Principal investigator on Skinmap\'s IRB validation study.',
     initials: 'MP',
     bgClass: 'bg-coral',
   },
@@ -151,7 +151,7 @@ const advisors: Advisor[] = [
 const values: Value[] = [
   {
     title: 'Precision',
-    description: 'Every skinmap record is high-resolution, date-stamped, and built for objective comparison — because "looks about the same" has never been a clinical standard.',
+    description: 'Every Skinmap record is high-resolution, date-stamped, and built for objective comparison — because "looks about the same" has never been a clinical standard.',
     icon: Target,
   },
   {
@@ -217,7 +217,7 @@ export function AboutPageClient() {
             <FadeUp delay={0.2}>
               <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl">
                 The tools to detect skin cancer early exist — they just aren&apos;t in the hands of every physician.
-                skinmap brings Total Body Photography to any practice, any iPhone, at a fraction of the
+                Skinmap brings Total Body Photography to any practice, any iPhone, at a fraction of the
                 cost of conventional systems. Medicare reimbursed. No specialist training required.
               </p>
             </FadeUp>
@@ -277,7 +277,7 @@ export function AboutPageClient() {
                 <strong className="text-white">
                   It isn&apos;t a knowledge problem. It&apos;s a workflow and tooling problem.
                 </strong>{' '}
-                skinmap solves both.
+                Skinmap solves both.
               </p>
             </div>
           </FadeUp>
@@ -294,14 +294,14 @@ export function AboutPageClient() {
                 We&apos;ve Seen the Consequences of Catching It Too Late.
               </SectionHeadline>
               <p className="text-gray-500 leading-relaxed mb-5">
-                skinmap was born out of a clinical observation that became impossible to ignore:
+                Skinmap was born out of a clinical observation that became impossible to ignore:
                 patients were arriving at advanced-stage skin cancer diagnoses after years of
                 routine checkups — checkups where their lesions had been noted, sometimes
                 photographed, but never systematically tracked or compared. The data existed. The
                 pattern was there. But no tool existed to connect it across visits.
               </p>
               <p className="text-gray-500 leading-relaxed">
-                We built skinmap to solve exactly that problem: giving every physician the same
+                We built Skinmap to solve exactly that problem: giving every physician the same
                 longitudinal skin intelligence that a specialist with a dedicated dermoscopy
                 practice delivers, in the form factor of an iPhone app that requires no additional
                 training, no new hardware, and no disruption to existing workflows. We believe
@@ -341,7 +341,7 @@ export function AboutPageClient() {
                 The roadmap from early access to standard of care.
               </SectionHeadline>
               <p className="text-gray-600 leading-relaxed mb-8">
-                skinmap&apos;s mission is not just to build a great product — it&apos;s to make
+                Skinmap&apos;s mission is not just to build a great product — it&apos;s to make
                 longitudinal skin health tracking the standard of care for every physician who sees
                 patients. Here&apos;s what the path looks like.
               </p>
@@ -490,14 +490,14 @@ export function AboutPageClient() {
             <FadeUp>
               <p className="eyebrow text-white/70 mb-3">FOR PATIENTS</p>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ask your doctor about skinmap at your next appointment.
+                Ask your doctor about Skinmap at your next appointment.
               </h2>
               <p className="text-white/80 leading-relaxed mb-6">
                 Don&apos;t wait for symptoms. Early detection starts with a single conversation.
-                skinmap gives your physician the AI tools to catch skin cancer earlier.
+                Skinmap gives your physician the AI tools to catch skin cancer earlier.
               </p>
               <Link href="/contact?type=patient">
-                <Button variant="outline-white" size="md">Ask Your Doctor About skinmap</Button>
+                <Button variant="outline-white" size="md">Ask Your Doctor About Skinmap</Button>
               </Link>
             </FadeUp>
           </div>

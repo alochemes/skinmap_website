@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// POST /api/contact — skinmap form submission handler
+// POST /api/contact — Skinmap form submission handler
 // Accepts all 5 contact form types, routes each to the right inbox via Resend.
 // ---------------------------------------------------------------------------
 
@@ -9,7 +9,7 @@ import { z } from 'zod';
 
 // ── Routing config ────────────────────────────────────────────────────────────
 
-const FROM = 'skinmap <noreply@mail.skinmap.com>';
+const FROM = process.env.EMAIL_FROM ?? 'Skinmap <noreply@mail.skinmap.com>';
 
 const ROUTES: Record<string, string> = {
   physician_demo: process.env.EMAIL_DEMO_INBOX ?? 'demo@skinmap.com',
@@ -106,7 +106,7 @@ function buildHtml(data: z.infer<typeof payloadSchema>): string {
   return `
     <div style="font-family:Inter,sans-serif;max-width:600px;margin:0 auto">
       <div style="background:#0D0B28;padding:20px 32px;border-radius:8px 8px 0 0">
-        <span style="color:#00CA5A;font-weight:800;font-size:18px">skinmap</span>
+        <span style="color:#00CA5A;font-weight:800;font-size:18px">Skinmap</span>
         <span style="color:#9CA3AF;font-size:14px;margin-left:12px">form submission</span>
       </div>
       <table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #E5E7EB">

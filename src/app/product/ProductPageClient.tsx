@@ -273,7 +273,7 @@ export default function ProductPageClient() {
       >
         <Container className="relative z-10 text-center max-w-4xl mx-auto">
           <FadeUp>
-            <Badge variant="new" className="mb-6">Total Body Photography · skinmap</Badge>
+            <Badge variant="new" className="mb-6">Total Body Photography · Skinmap</Badge>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-500 tracking-tight leading-tight mb-6">
@@ -284,7 +284,7 @@ export default function ProductPageClient() {
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10">
-              skinmap brings Total Body Photography to any practice — an iPhone, 60 seconds, and no
+              Skinmap brings Total Body Photography to any practice — an iPhone, 60 seconds, and no
               additional hardware. No expensive equipment. No specialist training. Reimbursed by
               Medicare. HIPAA compliant. Patented technology.
             </p>
@@ -339,12 +339,12 @@ export default function ProductPageClient() {
                 <p className="text-gray-600 leading-relaxed mb-6 text-base sm:text-lg">
                   Using a specifically configured iPhone 12 Pro or later, your medical assistant or nurse
                   captures high-resolution 3D photo records of the entire skin surface. No specialist
-                  training required — any member of your practice can collect a skinmap.
+                  training required — any member of your practice can collect a Skinmap.
                 </p>
                 <div className="bg-coral/5 border-l-4 border-coral rounded-r-xl p-5 mb-8">
                   <p className="text-navy font-medium text-sm sm:text-base leading-relaxed">
                     Unlike conventional TBP systems that require tens of thousands in upfront equipment,
-                    skinmap gets your practice started for approximately $1,400 — an iPhone and an
+                    Skinmap gets your practice started for approximately $1,400 — an iPhone and an
                     illuminating light.
                   </p>
                 </div>
@@ -353,7 +353,7 @@ export default function ProductPageClient() {
                     'Full body captured in approximately 60 seconds',
                     'High-resolution images with real-time feedback',
                     'No extra office space or specialty hardware needed',
-                    'Medical assistants and nurses can perform skinmaps',
+                    'Medical assistants and nurses can perform Skinmaps',
                     'Over 90% of patients opted in during our clinical pilot program',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-gray-600 text-sm">
@@ -383,7 +383,7 @@ export default function ProductPageClient() {
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-6 text-base sm:text-lg">
                   Patient privacy is a priority — all images are encrypted, securely stored, and never
-                  shared outside the care team. At each follow-up visit, skinmap automatically surfaces
+                  shared outside the care team. At each follow-up visit, Skinmap automatically surfaces
                   the previous scan for direct side-by-side comparison.
                 </p>
                 <div className="bg-coral/5 border-l-4 border-coral rounded-r-xl p-5 mb-8">
@@ -434,7 +434,7 @@ export default function ProductPageClient() {
                   Your entire panel. One screen.
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-6 text-base sm:text-lg">
-                  Every patient has a dedicated skinmap profile with their full scan history, body map,
+                  Every patient has a dedicated Skinmap profile with their full scan history, body map,
                   and flagged areas — all searchable and filterable. Surface every patient due for
                   follow-up, or every flagged lesion across your entire practice in a single view.
                 </p>
@@ -480,7 +480,7 @@ export default function ProductPageClient() {
                 <p className="text-gray-600 leading-relaxed mb-6 text-base sm:text-lg">
                   CPT 96904 (Total Body Photography) is covered by Medicare and major insurers for
                   patients with dysplastic nevi and those with a personal or family history of
-                  melanoma. skinmap generates compliant claim documentation automatically — so billing
+                  melanoma. Skinmap generates compliant claim documentation automatically — so billing
                   is as easy as the scan itself.
                 </p>
                 <div className="bg-coral/5 border-l-4 border-coral rounded-r-xl p-5 mb-8">
@@ -496,7 +496,7 @@ export default function ProductPageClient() {
                     'Major commercial insurers accepted',
                     'Eligible: patients with dysplastic nevi',
                     'Eligible: personal or family history of melanoma',
-                    'Automated claim documentation generated by skinmap',
+                    'Automated claim documentation generated by Skinmap',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-gray-600 text-sm">
                       <CheckCircle2 size={16} className="text-coral shrink-0 mt-0.5" />
@@ -532,15 +532,15 @@ export default function ProductPageClient() {
               },
               {
                 q: 'Who performs the scan?',
-                a: 'Most practices rely on their medical assistants or nurses to perform skinmaps. No specialist training is required.',
+                a: 'Most practices rely on their medical assistants or nurses to perform Skinmaps. No specialist training is required.',
               },
               {
-                q: 'How long does a skinmap take?',
+                q: 'How long does a Skinmap take?',
                 a: 'About one minute for a full-body scan. Patients receive real-time feedback during capture.',
               },
               {
                 q: 'Do patients like it?',
-                a: 'Over 90% of patients opted in when offered skinmap during our clinical pilot program. Patients consistently describe it as fast, easy, and reassuring.',
+                a: 'Over 90% of patients opted in when offered Skinmap during our clinical pilot program. Patients consistently describe it as fast, easy, and reassuring.',
               },
               {
                 q: 'Is it covered by insurance?',
@@ -548,15 +548,15 @@ export default function ProductPageClient() {
               },
               {
                 q: 'Is it HIPAA compliant?',
-                a: 'Yes. All images are AES-256 encrypted, securely stored, and never shared outside the care team. skinmap uses patented, HIPAA-compliant technology.',
+                a: 'Yes. All images are AES-256 encrypted, securely stored, and never shared outside the care team. Skinmap uses patented, HIPAA-compliant technology.',
               },
               {
-                q: 'What practices can use skinmap?',
-                a: 'skinmap is available to dermatologists across the U.S., and is also well-suited for primary care physicians who see patients with skin concerns.',
+                q: 'What practices can use Skinmap?',
+                a: 'Skinmap is available to dermatologists across the U.S., and is also well-suited for primary care physicians who see patients with skin concerns.',
               },
               {
-                q: 'Is skinmap being studied?',
-                a: 'Yes. skinmap has completed an IRB-approved clinical validation study conducted in collaboration with a leading academic dermatology program. Results have been submitted for peer review.',
+                q: 'Is Skinmap being studied?',
+                a: 'Yes. Skinmap has completed an IRB-approved clinical validation study conducted in collaboration with a leading academic dermatology program. Results have been submitted for peer review.',
               },
             ].map(({ q, a }) => (
               <FadeUp key={q}>
@@ -583,7 +583,7 @@ export default function ProductPageClient() {
             <SectionEyebrow className="text-coral">Technology</SectionEyebrow>
             <SectionHeadline className="text-white mt-2">Patented. HIPAA-Compliant. Medicare Reimbursed.</SectionHeadline>
             <SectionSubtext className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              skinmap is built for clinical environments — capturing the full skin surface in about
+              Skinmap is built for clinical environments — capturing the full skin surface in about
               60 seconds and enabling objective, visit-over-visit comparison on any iPhone.
             </SectionSubtext>
           </FadeUp>
@@ -625,7 +625,7 @@ export default function ProductPageClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-12">
             {[
               { label: 'Full-body scan time', value: 60, suffix: 's', sub: 'Any MA or nurse can do it' },
-              { label: 'Patient opt-in rate', value: 90, suffix: '%+', sub: 'When offered skinmap' },
+              { label: 'Patient opt-in rate', value: 90, suffix: '%+', sub: 'When offered Skinmap' },
               { label: 'Startup cost', prefix: '~$', value: 1400, suffix: '', sub: 'iPhone + lighting setup' },
             ].map(({ label, value, suffix, sub, ...rest }, i) => (
               <FadeUp key={label} delay={i * 0.1}>
@@ -653,7 +653,7 @@ export default function ProductPageClient() {
               Bring More Comprehensive Skin Health to Your Practice.
             </h2>
             <p className="text-navy/80 text-lg mb-8 leading-relaxed">
-              skinmap is available to dermatologists and primary care physicians across the U.S.
+              Skinmap is available to dermatologists and primary care physicians across the U.S.
               A simple way to provide the most comprehensive cancer care — reimbursed by Medicare,
               powered by your existing iPhone.
             </p>

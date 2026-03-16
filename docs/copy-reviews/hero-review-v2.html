@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>skinmap Hero Copy Review v2 — 2026-03-14</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #F3F4F6;
+      padding-top: 48px;
+      padding-bottom: 56px;
+    }
+
+    .review-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #271881;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px 16px;
+      z-index: 1000;
+    }
+    .review-banner span { color: #00CA5A; }
+
+    .page-title {
+      text-align: center;
+      padding: 24px 16px 16px;
+    }
+    .page-title h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0D0B28;
+      margin-bottom: 6px;
+    }
+    .page-title p { font-size: 13px; color: #6B7280; }
+
+    /* 3-column grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px)  { .grid { grid-template-columns: 1fr; } }
+
+    /* Panel */
+    .panel {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-top-bar { height: 5px; }
+    .panel--a .panel-top-bar { background: #3B82F6; }
+    .panel--b .panel-top-bar { background: #8B5CF6; }
+    .panel--c .panel-top-bar { background: #00CA5A; }
+
+    /* Mini navbar */
+    .mini-nav {
+      background: #0D0B28;
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+    }
+    .logo { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
+    .logo .w { color: #fff; }
+    .logo .g { color: #00CA5A; }
+    .mini-nav-links { margin-left: auto; display: flex; gap: 14px; }
+    .mini-nav-links span { color: rgba(255,255,255,0.45); font-size: 10px; }
+
+    /* Hero body */
+    .hero-body {
+      padding: 28px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+
+    /* Version label */
+    .version-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .panel--a .version-label { color: #3B82F6; }
+    .panel--b .version-label { color: #8B5CF6; }
+    .panel--c .version-label { color: #00CA5A; }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .panel--a .dot { background: #3B82F6; }
+    .panel--b .dot { background: #8B5CF6; }
+    .panel--c .dot { background: #00CA5A; }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background: rgba(39,24,129,0.08);
+      color: #271881;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    /* Headline */
+    .headline {
+      font-size: 26px;
+      font-weight: 800;
+      color: #271881;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .headline .accent { color: #00CA5A; }
+
+    /* Subheadline */
+    .sub {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    /* CTAs */
+    .cta-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+
+    .btn-primary {
+      background: #00CA5A;
+      color: #0D0B28;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 18px;
+      border-radius: 8px;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #271881;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1.5px solid #271881;
+      text-align: center;
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      border-top: 1px solid #F3F4F6;
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      color: #6B7280;
+    }
+    .check { color: #00CA5A; font-size: 12px; flex-shrink: 0; }
+
+    /* Sticky footer */
+    .sticky-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #0D0B28;
+      color: rgba(255,255,255,0.65);
+      font-size: 11px;
+      text-align: center;
+      padding: 9px 16px;
+      z-index: 1000;
+    }
+    .sticky-footer strong { color: #00CA5A; }
+  </style>
+</head>
+<body>
+
+  <div class="review-banner">
+    skinmap Hero — Copy Review v2 &nbsp;·&nbsp; 2026-03-14 &nbsp;·&nbsp;
+    <span>Founder copy directions · No src/ code modified</span>
+  </div>
+
+  <div class="page-title">
+    <h1>Hero Subheadline — 3 Versions</h1>
+    <p>Badge updated · Secondary CTA → "Find a Doctor" · Pick A, B, or C</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- VERSION A -->
+    <div class="panel panel--a">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="logo"><span class="w">skin</span><span class="g">map</span></div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label"><span class="dot"></span> Version A — Physician Empowerment</div>
+        <div class="badge">In a doctor's office near you</div>
+        <div class="headline">
+          Every Mole.<br>
+          Every Patient.<br>
+          <span class="accent">Every Visit.</span>
+        </div>
+        <div class="sub">
+          Tracking lesions on every patient is difficult. skinmap empowers you to know what changed.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Find a Doctor →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="check">✓</span> Medicare Reimbursed (CPT 96904)</div>
+          <div class="trust-item"><span class="check">✓</span> iPhone App — No Hardware</div>
+          <div class="trust-item"><span class="check">✓</span> ~90 Second Full-Body Scan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION B -->
+    <div class="panel panel--b">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="logo"><span class="w">skin</span><span class="g">map</span></div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label"><span class="dot"></span> Version B — Patient Demand</div>
+        <div class="badge">In a doctor's office near you</div>
+        <div class="headline">
+          Every Mole.<br>
+          Every Patient.<br>
+          <span class="accent">Every Visit.</span>
+        </div>
+        <div class="sub">
+          Patients want the doctor to know what changed since their last visit. Now you will, with skinmap.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Find a Doctor →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="check">✓</span> Medicare Reimbursed (CPT 96904)</div>
+          <div class="trust-item"><span class="check">✓</span> iPhone App — No Hardware</div>
+          <div class="trust-item"><span class="check">✓</span> ~90 Second Full-Body Scan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION C -->
+    <div class="panel panel--c">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="logo"><span class="w">skin</span><span class="g">map</span></div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label"><span class="dot"></span> Version C — Scale Problem</div>
+        <div class="badge">In a doctor's office near you</div>
+        <div class="headline">
+          Every Mole.<br>
+          Every Patient.<br>
+          <span class="accent">Every Visit.</span>
+        </div>
+        <div class="sub">
+          Remembering each mole on hundreds of patients is an impossible task. Let skinmap do that for you.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Find a Doctor →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="check">✓</span> Medicare Reimbursed (CPT 96904)</div>
+          <div class="trust-item"><span class="check">✓</span> iPhone App — No Hardware</div>
+          <div class="trust-item"><span class="check">✓</span> ~90 Second Full-Body Scan</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sticky-footer">
+    <strong>For review only.</strong> No website code has been changed. Tell the team "Version A", "B", or "C" to implement.
+  </div>
+
+</body>
+</html>

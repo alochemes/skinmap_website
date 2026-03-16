@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>skinmap Hero Copy Review — 2026-03-13</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #F3F4F6;
+      padding-top: 48px;
+      padding-bottom: 56px;
+    }
+
+    /* ── Review banner ── */
+    .review-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #271881;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-align: center;
+      padding: 10px 16px;
+      z-index: 1000;
+    }
+    .review-banner span { color: #00CA5A; }
+
+    /* ── Page title ── */
+    .page-title {
+      text-align: center;
+      padding: 24px 16px 16px;
+      color: #0D0B28;
+    }
+    .page-title h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .page-title p {
+      font-size: 13px;
+      color: #6B7280;
+    }
+
+    /* ── Recommendation bar ── */
+    .rec-bar {
+      background: #fff;
+      border: 1.5px solid #00CA5A;
+      border-radius: 10px;
+      margin: 0 16px 24px;
+      padding: 14px 20px;
+      font-size: 13px;
+      color: #0D0B28;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .rec-bar strong { color: #271881; }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 0 16px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Panel ── */
+    .panel {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-top-bar {
+      height: 5px;
+    }
+    .panel--live .panel-top-bar   { background: #9CA3AF; }
+    .panel--a    .panel-top-bar   { background: #3B82F6; }
+    .panel--b    .panel-top-bar   { background: #8B5CF6; }
+    .panel--c    .panel-top-bar   { background: #00CA5A; }
+
+    /* ── Mini navbar ── */
+    .mini-nav {
+      background: #0D0B28;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mini-nav-logo {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .mini-nav-logo .white { color: #fff; }
+    .mini-nav-logo .green { color: #00CA5A; }
+    .mini-nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 12px;
+    }
+    .mini-nav-links span {
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+    }
+
+    /* ── Hero body ── */
+    .hero-body {
+      padding: 24px 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Version label */
+    .version-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .panel--live .version-label { color: #6B7280; }
+    .panel--a    .version-label { color: #3B82F6; }
+    .panel--b    .version-label { color: #8B5CF6; }
+    .panel--c    .version-label { color: #00CA5A; }
+
+    .version-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .panel--live .version-dot { background: #9CA3AF; }
+    .panel--a    .version-dot { background: #3B82F6; }
+    .panel--b    .version-dot { background: #8B5CF6; }
+    .panel--c    .version-dot { background: #00CA5A; }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      background: rgba(39,24,129,0.08);
+      color: #271881;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    /* Headline */
+    .hero-headline {
+      font-size: 22px;
+      font-weight: 800;
+      color: #271881;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .hero-headline .accent { color: #00CA5A; }
+
+    /* Subheadline */
+    .hero-sub {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.65;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .hero-sub strong {
+      color: #0D0B28;
+    }
+
+    /* CTAs */
+    .cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .btn-primary {
+      background: #00CA5A;
+      color: #0D0B28;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 7px;
+      border: none;
+      cursor: default;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #271881;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 7px;
+      border: 1.5px solid #271881;
+      cursor: default;
+      text-align: center;
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      border-top: 1px solid #F3F4F6;
+      padding-top: 14px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      color: #6B7280;
+    }
+    .trust-check {
+      color: #00CA5A;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ── Score row ── */
+    .score-row {
+      display: flex;
+      gap: 16px;
+      padding: 0 16px;
+      max-width: 1400px;
+      margin: 16px auto 0;
+    }
+    .score-card {
+      flex: 1;
+      background: #fff;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 11px;
+      color: #6B7280;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .score-card .score-num {
+      font-size: 18px;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .panel--live + .panel--a ~ .score-card { color: #3B82F6; }
+    .score-card--live .score-num { color: #9CA3AF; }
+    .score-card--a    .score-num { color: #3B82F6; }
+    .score-card--b    .score-num { color: #8B5CF6; }
+    .score-card--c    .score-num { color: #00CA5A; }
+
+    /* ── Footer ── */
+    .sticky-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #0D0B28;
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      text-align: center;
+      padding: 8px 16px;
+      z-index: 1000;
+    }
+    .sticky-footer strong { color: #00CA5A; }
+  </style>
+</head>
+<body>
+
+  <!-- Review banner -->
+  <div class="review-banner">
+    skinmap Hero Copy Review &nbsp;·&nbsp; 2026-03-13 &nbsp;·&nbsp;
+    <span>For founder review only — no src/ code has been changed</span>
+  </div>
+
+  <!-- Page title -->
+  <div class="page-title">
+    <h1>Hero Above-the-Fold — 4 Versions</h1>
+    <p>Current live copy vs. 3 alternatives · Pick A, B, or C to implement</p>
+  </div>
+
+  <!-- Recommendation -->
+  <div class="rec-bar">
+    <strong>Marketing Manager recommends: Version A (Revenue Angle).</strong>
+    Leading with CPT 96904 is distinctively clinical — no competitor does it at hero position.
+    Version B is the right choice for evidence-hungry clinical evaluators.
+    Version C activates the dual physician + patient audience strategy.
+  </div>
+
+  <!-- 4-panel grid -->
+  <div class="grid">
+
+    <!-- VERSION 0 — LIVE -->
+    <div class="panel panel--live">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="mini-nav-logo">
+          <span class="white">skin</span><span class="green">map</span>
+        </div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label">
+          <span class="version-dot"></span> Version 0 — Live Now
+        </div>
+        <div class="badge">Now available to dermatologists across the U.S.</div>
+        <div class="hero-headline">
+          Every Mole.<br>Every Patient. <span class="accent">Every Visit.</span>
+        </div>
+        <div class="hero-sub">
+          Full-body skin scans in ~90 seconds. iPhone only. No extra room, no expensive hardware, no specialist. Any member of your team can do it.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Ask Your Doctor About skinmap →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-check">✓</span> Medicare Reimbursed (CPT 96904)</div>
+          <div class="trust-item"><span class="trust-check">✓</span> iPhone App — No Hardware</div>
+          <div class="trust-item"><span class="trust-check">✓</span> ~90 Second Full-Body Scan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION A — REVENUE ANGLE -->
+    <div class="panel panel--a">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="mini-nav-logo">
+          <span class="white">skin</span><span class="green">map</span>
+        </div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label">
+          <span class="version-dot"></span> Version A — Revenue Angle
+        </div>
+        <div class="badge">Now available to dermatologists across the U.S.</div>
+        <div class="hero-headline">
+          Every Mole.<br>Every Patient. <span class="accent">Every Visit.</span>
+        </div>
+        <div class="hero-sub">
+          Most lesions go undocumented between visits.<br>
+          skinmap supports CPT 96904 reimbursement, no hardware.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Ask Your Doctor About skinmap →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-check">✓</span> CPT 96904 Reimbursement</div>
+          <div class="trust-item"><span class="trust-check">✓</span> HIPAA Compliant</div>
+          <div class="trust-item"><span class="trust-check">✓</span> iPhone Only — No Hardware</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION B — PRECISION ANGLE -->
+    <div class="panel panel--b">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="mini-nav-logo">
+          <span class="white">skin</span><span class="green">map</span>
+        </div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label">
+          <span class="version-dot"></span> Version B — Precision Angle
+        </div>
+        <div class="badge">Now available to dermatologists across the U.S.</div>
+        <div class="hero-headline">
+          See What the<br><span class="accent">Eye Might Miss.</span>
+        </div>
+        <div class="hero-sub">
+          Skin changes. Written notes don't capture them.<br>
+          90% sensitivity. 90% specificity. In internal testing.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Ask Your Doctor About skinmap →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-check">✓</span> IRB-Approved Study</div>
+          <div class="trust-item"><span class="trust-check">✓</span> 50,000+ Clinical Images</div>
+          <div class="trust-item"><span class="trust-check">✓</span> AI-Assisted Risk Stratification</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERSION C — DUAL AUDIENCE -->
+    <div class="panel panel--c">
+      <div class="panel-top-bar"></div>
+      <div class="mini-nav">
+        <div class="mini-nav-logo">
+          <span class="white">skin</span><span class="green">map</span>
+        </div>
+        <div class="mini-nav-links">
+          <span>Product</span><span>About</span><span>Contact</span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="version-label">
+          <span class="version-dot"></span> Version C — Dual Audience
+        </div>
+        <div class="badge">Now available to dermatologists across the U.S.</div>
+        <div class="hero-headline">
+          Every Mole.<br>Every Patient. <span class="accent">Every Visit.</span>
+        </div>
+        <div class="hero-sub">
+          Most lesions go undocumented between visits.<br>
+          Your patients want to know what's changing.
+        </div>
+        <div class="cta-row">
+          <div class="btn-primary">Request a Demo</div>
+          <div class="btn-outline">Ask Your Doctor About skinmap →</div>
+        </div>
+        <div class="trust-strip">
+          <div class="trust-item"><span class="trust-check">✓</span> Physician-Facing</div>
+          <div class="trust-item"><span class="trust-check">✓</span> Patient-Empowering</div>
+          <div class="trust-item"><span class="trust-check">✓</span> HIPAA Compliant</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Score cards -->
+  <div class="score-row">
+    <div class="score-card score-card--live">
+      <span class="score-num">—</span>
+      Live · No score
+    </div>
+    <div class="score-card score-card--a">
+      <span class="score-num">26/30</span>
+      Version A · Revenue Angle
+    </div>
+    <div class="score-card score-card--b">
+      <span class="score-num">25/30</span>
+      Version B · Precision Angle
+    </div>
+    <div class="score-card score-card--c">
+      <span class="score-num">23/30</span>
+      Version C · Dual Audience
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="sticky-footer">
+    <strong>For review only.</strong> No website code has been changed.
+    Tell the team "Version A", "Version B", or "Version C" to implement.
+  </div>
+
+</body>
+</html>

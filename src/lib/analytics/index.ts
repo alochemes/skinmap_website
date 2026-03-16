@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Analytics — skinmap
+// Analytics — Skinmap
 // Thin wrapper over GA4 (gtag). PostHog added in Phase 4.
 // Always call track() — never call gtag() directly — so swapping providers
 // later only requires changing this file.
@@ -26,7 +26,7 @@ export function setAnalyticsConsent(granted: boolean) {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('consent', 'update', {
       analytics_storage: granted ? 'granted' : 'denied',
-      ad_storage: 'denied', // skinmap never uses ad storage
+      ad_storage: 'denied', // Skinmap never uses ad storage
     });
   }
 

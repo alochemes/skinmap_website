@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// PostHog client — skinmap Phase 4
+// PostHog client — Skinmap Phase 4
 // Initialized once on the client side. Use posthog() anywhere after mount.
 // ---------------------------------------------------------------------------
 

@@ -10,12 +10,13 @@ import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { label: 'Product',     href: '/product' },
-  { label: 'About',       href: '/about' },
-  { label: 'For Patients', href: '/for-patients' },
-  { label: 'Investors',   href: '/investors' },
-  { label: 'News',        href: '/news' },
-  { label: 'Contact',     href: '/contact' },
+  { label: 'Product',       href: '/product' },
+  { label: 'For Providers', href: '/for-providers' },
+  { label: 'For Patients',  href: '/for-patients' },
+  { label: 'News',          href: '/news' },
+  { label: 'About Us',      href: '/about' },
+  { label: 'Investors',     href: '/investors' },
+  { label: 'Contact',       href: '/contact' },
 ] as const;
 
 export function Navbar() {
@@ -62,7 +63,7 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral rounded"
-            aria-label="skinmap home"
+            aria-label="Skinmap home"
           >
             <Image
               src="/images/logo-icon.png"
@@ -72,12 +73,7 @@ export function Navbar() {
               className="rounded-full"
               priority
             />
-            <span className="text-xl font-bold text-white tracking-tight">
-              skin
-            </span>
-            <span className="text-xl font-bold text-coral tracking-tight">
-              map
-            </span>
+            <span className="text-xl font-bold tracking-tight"><span className="text-white">Skin</span><span className="text-coral">map</span></span>
           </Link>
 
           {/* Desktop links */}
@@ -169,7 +165,7 @@ export function Navbar() {
                 <Button variant="primary" size="lg" fullWidth>Request a Demo</Button>
               </Link>
               <Link href="/contact?type=patient" className="w-full">
-                <Button variant="outline-white" size="lg" fullWidth>Ask Your Doctor About skinmap</Button>
+                <Button variant="outline-white" size="lg" fullWidth>Ask Your Doctor About Skinmap</Button>
               </Link>
             </div>
           </motion.div>

@@ -32,9 +32,9 @@ const footerLinks = {
 } as const;
 
 const socialLinks = [
-  { label: 'Twitter / X', href: 'https://twitter.com/skinmapai', Icon: TwitterX },
-  { label: 'LinkedIn',    href: 'https://linkedin.com/company/skinmap', Icon: Linkedin },
-  { label: 'Email',       href: 'mailto:hello@skinmap.com', Icon: Mail },
+  { label: 'Twitter / X', href: 'https://twitter.com/Skinmapai', Icon: TwitterX },
+  { label: 'LinkedIn',    href: 'https://linkedin.com/company/Skinmap', Icon: Linkedin },
+  { label: 'Email',       href: 'mailto:hello@Skinmap.com', Icon: Mail },
 ] as const;
 
 export function Footer() {
@@ -50,7 +50,7 @@ export function Footer() {
             <Link
               href="/"
               className="inline-flex items-center gap-2 mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral rounded"
-              aria-label="skinmap home"
+              aria-label="Skinmap home"
             >
               <Image
                 src="/images/logo-icon.png"
@@ -111,10 +111,10 @@ export function Footer() {
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>
-            &copy; {currentYear} skinmap, Inc. All rights reserved.
+            &copy; {currentYear} Skinmap, Inc. All rights reserved.
           </p>
           <p className="text-center sm:text-right">
-            skinmap is on the FDA De Novo pathway. Not yet cleared for clinical use in all markets.
+            Skinmap is on the FDA De Novo pathway. Not yet cleared for clinical use in all markets.
             For investigational use only where applicable.
           </p>
         </div>

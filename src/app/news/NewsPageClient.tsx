@@ -34,23 +34,23 @@ const pressReleases: PressRelease[] = [
   {
     date: 'January 14, 2026',
     headline:
-      'skinmap Completes IRB-Approved Clinical Validation Study Demonstrating 90% Sensitivity and Specificity',
+      'Skinmap Completes IRB-Approved Clinical Validation Study Demonstrating 90% Sensitivity and Specificity',
     excerpt:
       '90% sensitivity and 90% specificity across a diverse patient population. IRB-approved, conducted with leading academic dermatology programs, and submitted for peer review.',
   },
   {
     date: 'October 3, 2025',
     headline:
-      'skinmap Raises Seed Funding to Expand Physician Access to AI-Powered Dermatology Diagnostics',
+      'Skinmap Raises Seed Funding to Expand Physician Access to AI-Powered Dermatology Diagnostics',
     excerpt:
       'Seed round closed to accelerate product development and clinical deployment, led by investors specializing in clinical AI and digital health.',
   },
   {
     date: 'July 22, 2025',
     headline:
-      'skinmap Launches Early Access Program for Dermatologists and Primary Care Physicians',
+      'Skinmap Launches Early Access Program for Dermatologists and Primary Care Physicians',
     excerpt:
-      'A select cohort of dermatologists and primary care physicians now integrating skinmap into clinical practice, with direct access to the skinmap team.',
+      'A select cohort of dermatologists and primary care physicians now integrating Skinmap into clinical practice, with direct access to the Skinmap team.',
   },
 ];
 
@@ -124,7 +124,7 @@ export function NewsPageClient() {
             </FadeUp>
             <FadeUp delay={0.1}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-navy-500 mt-4 mb-6">
-                skinmap in the News
+                Skinmap in the News
               </h1>
             </FadeUp>
             <FadeUp delay={0.2}>
@@ -200,7 +200,7 @@ export function NewsPageClient() {
               Available for Media Coverage
             </SectionHeadline>
             <SectionSubtext className="mx-auto">
-              skinmap is available for interviews, clinical data briefings, and product
+              Skinmap is available for interviews, clinical data briefings, and product
               demonstrations. Contact our communications team to get started.
             </SectionSubtext>
           </FadeUp>
@@ -311,11 +311,11 @@ export function NewsPageClient() {
                 contact our communications team.
               </p>
               <a
-                href="mailto:press@skinmap.com"
+                href="mailto:press@Skinmap.com"
                 className="inline-flex items-center gap-2 text-coral font-semibold text-lg hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral rounded"
               >
                 <Mail size={20} aria-hidden="true" />
-                press@skinmap.com
+                press@Skinmap.com
               </a>
             </FadeUp>
           </div>

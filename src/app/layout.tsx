@@ -18,11 +18,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'skinmap — Total Body Photography Without the Hardware',
-    template: '%s | skinmap',
+    default: 'Skinmap — Total Body Photography Without the Hardware',
+    template: '%s | Skinmap',
   },
   description:
-    'skinmap delivers full-body skin scans in about 60 seconds — using nothing but an iPhone. Medicare covered (CPT 96904). HIPAA compliant. Patented technology.',
+    'Skinmap delivers full-body skin scans in about 60 seconds — using nothing but an iPhone. Medicare covered (CPT 96904). HIPAA compliant. Patented technology.',
   keywords: [
     'total body photography',
     'skin cancer detection',
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
     'dermatology app',
   ],
   openGraph: {
-    title: 'skinmap — Total Body Photography Without the Hardware',
+    title: 'Skinmap — Total Body Photography Without the Hardware',
     description:
       'Full-body skin scans in ~60 seconds. Medicare covered. No expensive equipment. Any iPhone.',
     type: 'website',
-    siteName: 'skinmap',
+    siteName: 'Skinmap',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'skinmap — Total Body Photography Without the Hardware',
+    title: 'Skinmap — Total Body Photography Without the Hardware',
     description: 'Full-body skin scans in ~60 seconds. Medicare covered. No expensive equipment.',
   },
   robots: {

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Analytics Event Taxonomy — skinmap
+// Analytics Event Taxonomy — Skinmap
 // Define ALL trackable events here before wiring them anywhere.
 // Follow this pattern: verb_noun (snake_case). Keep parameters typed.
 // ---------------------------------------------------------------------------

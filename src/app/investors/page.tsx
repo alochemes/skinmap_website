@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { InvestorsPageClient } from './InvestorsPageClient';
 
 export const metadata: Metadata = {
-  title: 'Investors & Partners | skinmap',
+  title: 'Investors & Partners | Skinmap',
   description:
-    'The $20 billion dermatology gap has a solution. skinmap closes the access gap between 3,600 dermatologists and 330 million Americans with clinical-grade AI at the point of care.',
+    'The $20 billion dermatology gap has a solution. Skinmap closes the access gap between 3,600 dermatologists and 330 million Americans with clinical-grade AI at the point of care.',
   openGraph: {
-    title: 'Investor Opportunity | skinmap',
+    title: 'Investor Opportunity | Skinmap',
     description:
-      "skinmap is the only physician-facing longitudinal skin health tracking platform combining IRB-validated AI diagnostics with point-of-care iPhone capture. Request an investor briefing.",
+      "Skinmap is the only physician-facing longitudinal skin health tracking platform combining IRB-validated AI diagnostics with point-of-care iPhone capture. Request an investor briefing.",
   },
 };
 

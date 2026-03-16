@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://skinmap.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://Skinmap.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

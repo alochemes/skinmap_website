@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import ProductPageClient from './ProductPageClient';
 
 export const metadata: Metadata = {
-  title: 'How skinmap Works | Total Body Photography',
+  title: 'How Skinmap Works | Total Body Photography',
   description:
-    "skinmap delivers full-body skin scans in about 60 seconds using just an iPhone. Capture, compare visit-over-visit, and act early. Medicare covered (CPT 96904). HIPAA compliant. Patented.",
+    "Skinmap delivers full-body skin scans in about 60 seconds using just an iPhone. Capture, compare visit-over-visit, and act early. Medicare covered (CPT 96904). HIPAA compliant. Patented.",
   openGraph: {
-    title: 'How skinmap Works | Total Body Photography Without the Hardware',
+    title: 'How Skinmap Works | Total Body Photography Without the Hardware',
     description:
       'Full-body skin scans in ~60 seconds. Capture → Compare → Act Early. Medicare reimbursed. No expensive equipment. Any iPhone.',
   },

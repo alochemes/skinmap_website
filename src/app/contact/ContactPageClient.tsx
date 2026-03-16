@@ -57,20 +57,20 @@ const TYPE_TO_TAB: Record<string, number> = {
 const TABS: TabConfig[] = [
   {
     label: 'Physician Demo',
-    headline: 'See skinmap in a 30-minute live demo built around your patient workflow.',
+    headline: 'See Skinmap in a 30-minute live demo built around your patient workflow.',
   },
   {
     label: 'Clinical Partnership',
     headline:
-      'Integrate skinmap into your health system, hospital, or clinical research program.',
+      'Integrate Skinmap into your health system, hospital, or clinical research program.',
   },
   {
     label: 'Investment Inquiry',
-    headline: 'Connect with the skinmap founding team for a full investor briefing.',
+    headline: 'Connect with the Skinmap founding team for a full investor briefing.',
   },
   {
     label: 'Patient / General',
-    headline: 'Ask us anything — or ask us to help you bring skinmap to your doctor.',
+    headline: 'Ask us anything — or ask us to help you bring Skinmap to your doctor.',
   },
   {
     label: 'Press',
@@ -79,10 +79,10 @@ const TABS: TabConfig[] = [
 ];
 
 const EMAIL_CONTACTS = [
-  { label: 'Physician demos', email: 'demos@skinmap.com' },
-  { label: 'Clinical partnerships', email: 'partners@skinmap.com' },
-  { label: 'Press', email: 'press@skinmap.com' },
-  { label: 'General', email: 'hello@skinmap.com' },
+  { label: 'Physician demos', email: 'demos@Skinmap.com' },
+  { label: 'Clinical partnerships', email: 'partners@Skinmap.com' },
+  { label: 'Press', email: 'press@Skinmap.com' },
+  { label: 'General', email: 'hello@Skinmap.com' },
 ];
 
 const TRUST_ITEMS = [
@@ -99,7 +99,7 @@ const TRUST_ITEMS = [
   {
     icon: Users,
     title: 'Personal Response',
-    description: 'Every inquiry answered by the skinmap team',
+    description: 'Every inquiry answered by the Skinmap team',
   },
 ];
 
@@ -130,7 +130,7 @@ function SuccessState() {
       </h3>
       <p className="text-gray-500 leading-relaxed max-w-md mb-8">
         We typically respond within one business day. In the meantime, you&apos;re welcome to
-        explore the skinmap product page or review our clinical validation data — links below.
+        explore the Skinmap product page or review our clinical validation data — links below.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
         <Link
@@ -573,7 +573,7 @@ export function ContactPageClient() {
               variants={prefersReducedMotion ? {} : fadeUp}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-navy-500 mt-4 mb-6"
             >
-              Let&apos;s Talk About What skinmap Can Do for Your Practice.
+              Let&apos;s Talk About What Skinmap Can Do for Your Practice.
             </motion.h1>
             <motion.p
               variants={prefersReducedMotion ? {} : fadeUp}
@@ -678,19 +678,19 @@ export function ContactPageClient() {
                   </p>
                   <div className="flex gap-3">
                     <a
-                      href="https://twitter.com/skinmap"
+                      href="https://twitter.com/Skinmap"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="skinmap on Twitter / X"
+                      aria-label="Skinmap on Twitter / X"
                       className="w-10 h-10 rounded-full bg-navy-50 flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors"
                     >
                       <Twitter size={18} />
                     </a>
                     <a
-                      href="https://linkedin.com/company/skinmap"
+                      href="https://linkedin.com/company/Skinmap"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="skinmap on LinkedIn"
+                      aria-label="Skinmap on LinkedIn"
                       className="w-10 h-10 rounded-full bg-navy-50 flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors"
                     >
                       <Linkedin size={18} />
@@ -701,7 +701,7 @@ export function ContactPageClient() {
                 <div className="h-px bg-gray-100" />
 
                 <p className="text-xs text-gray-400 leading-relaxed">
-                  skinmap is HIPAA compliant. Information you share with us is handled in
+                  Skinmap is HIPAA compliant. Information you share with us is handled in
                   accordance with our privacy policy and never used for marketing purposes.
                 </p>
               </div>

@@ -1,6 +1,6 @@
 # skinmap — Project Context for AI Agents
 
-> **Brand name**: always written lowercase — **skinmap** (never "SkinMap" or "SKINMAP")
+> **Brand name**: **Skinmap** — capital S, lowercase m. Never "SkinMap" or "SKINMAP". In the logo, "Skin" renders in white and "map" renders in coral/green.
 
 ## Company Overview
 **skinmap** is an AI-powered dermatology diagnostics company building an iPhone app that enables
@@ -257,6 +257,14 @@ This project uses a 5-agent workflow (slash commands in `.claude/commands/`):
 | `/07-ux-flow [page]` | UX Flow Agent | Audits user flows, scroll behavior, CTAs, dual physician/patient journey | in-place code edits + UX audit report |
 | `/08-fda-compliance [target]` | FDA Compliance Agent | Reviews all copy for FDA SaMD language — flags prohibited claims, rewrites for compliance | compliance report (edits require user confirmation) |
 | `/09-color-palette [page]` | Color Palette Agent | Audits current color scheme, benchmarks against medical AI peers, proposes 2 alternative palettes — implements only after user approval | palette audit report + optional tailwind.config.ts update |
+| `/10-creative-writer [section]` | Creative Writer Agent | Brainstorms 6–8 bold copy directions for a page section — high-creativity, grounded in real skinmap facts, FDA-safe | `docs/copy-work/creative-brief-[section].md` |
+| `/11-marketing-manager [section]` | Marketing Manager Agent | Reviews creative brief, scores all directions, synthesizes 3 final alternatives, produces visual HTML mockup for founder review — never touches `src/` | `docs/copy-reviews/[section]-review.html` + `[section]-report.md` |
+
+**Copy iteration workflow (for revising live copy):**
+1. Run `/10-creative-writer [section]` → generates raw creative directions
+2. Run `/11-marketing-manager [section]` → scores + synthesizes → produces HTML mockup
+3. Open `docs/copy-reviews/[section]-review.html` in browser to review 3 alternatives
+4. Tell the Marketing Manager which version (A/B/C) to implement → it edits `src/` only after approval
 
 **Recommended workflow order:**
 1. Run `/01-research` → generates `research-brief.md` (design patterns)

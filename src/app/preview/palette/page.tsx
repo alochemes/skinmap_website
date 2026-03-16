@@ -227,7 +227,7 @@ function MiniHowItWorks({ v }: { v: Variant }) {
     <div style={{ background: v.sec1Bg, padding: '36px 32px' }}>
       <div style={{ textAlign: 'center', marginBottom: 28 }}>
         <div style={{ color: v.sectionEyebrow, fontSize: 10, fontWeight: 700, letterSpacing: '0.11em', textTransform: 'uppercase', marginBottom: 8 }}>Clinical Workflow</div>
-        <div style={{ color: v.sectionHeading, fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 6 }}>How skinmap works</div>
+        <div style={{ color: v.sectionHeading, fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 6 }}>How Skinmap works</div>
         <div style={{ color: v.sectionBody, fontSize: 13 }}>Any practice. Any patient. About one minute.</div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14 }}>
@@ -297,7 +297,7 @@ function MiniValueProp({ v }: { v: Variant }) {
 function MiniStats({ v }: { v: Variant }) {
   return (
     <div style={{ background: v.sec3Bg, padding: '34px 32px', textAlign: 'center' }}>
-      <div style={{ color: v.ctaBg, fontSize: 10, fontWeight: 700, letterSpacing: '0.11em', textTransform: 'uppercase', marginBottom: 24 }}>skinmap in your practice</div>
+      <div style={{ color: v.ctaBg, fontSize: 10, fontWeight: 700, letterSpacing: '0.11em', textTransform: 'uppercase', marginBottom: 24 }}>Skinmap in your practice</div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
         {[{ val: '90s', label: 'Scan time', ctx: '' }, { val: '80%', label: 'Patient opt-in', ctx: 'When offered as part of routine care' }, { val: '[X]', label: 'To get started', ctx: 'vs. tens of thousands for TBP hardware' }].map(s => (
           <div key={s.label}>
@@ -318,7 +318,7 @@ function MiniBanner({ v }: { v: Variant }) {
       <div style={{ color: v.bannerSub, fontSize: 13, marginBottom: 26, lineHeight: 1.65 }}>Available to dermatologists and PCPs across the U.S. Medicare reimbursed.</div>
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
         <button style={{ background: v.bannerPrimBg, color: v.bannerPrimText, border: 'none', borderRadius: 6, padding: '12px 28px', fontSize: 13, fontWeight: 700, cursor: 'pointer' }}>Request a Demo</button>
-        <button style={{ background: 'transparent', color: v.bannerSecText, border: `1.5px solid ${v.bannerSecBorder}`, borderRadius: 6, padding: '12px 26px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Ask Your Doctor About skinmap</button>
+        <button style={{ background: 'transparent', color: v.bannerSecText, border: `1.5px solid ${v.bannerSecBorder}`, borderRadius: 6, padding: '12px 26px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Ask Your Doctor About Skinmap</button>
       </div>
     </div>
   );

@@ -95,15 +95,15 @@ const thesisCards: ThesisCard[] = [
     icon: Brain,
   },
   {
-    title: 'Why skinmap?',
+    title: 'Why Skinmap?',
     rationale:
-      "skinmap is the only physician-facing, longitudinal skin health tracking platform combining AI diagnostics with point-of-care image capture in a native iPhone app. Unlike consumer scan apps, skinmap is designed for clinical workflows — with IRB-validated accuracy, HIPAA compliance, and the integration architecture that hospital systems and group practices require.",
+      "Skinmap is the only physician-facing, longitudinal skin health tracking platform combining AI diagnostics with point-of-care image capture in a native iPhone app. Unlike consumer scan apps, Skinmap is designed for clinical workflows — with IRB-validated accuracy, HIPAA compliance, and the integration architecture that hospital systems and group practices require.",
     icon: TrendingUp,
   },
   {
     title: 'Why This Team?',
     rationale:
-      "skinmap's founding team combines clinical medicine, computer vision research, and health technology commercialization. Our scientific advisors include board-certified dermatologists and pathologists with decades of combined clinical experience. We are building this company with the rigor of clinical researchers and the velocity of a technology team.",
+      "Skinmap's founding team combines clinical medicine, computer vision research, and health technology commercialization. Our scientific advisors include board-certified dermatologists and pathologists with decades of combined clinical experience. We are building this company with the rigor of clinical researchers and the velocity of a technology team.",
     icon: Users,
   },
 ];
@@ -180,7 +180,7 @@ export function InvestorsPageClient() {
             <FadeUp delay={0.2}>
               <p className="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl">
                 There are fewer than 3,600 board-certified dermatologists for 330 million Americans —
-                and over 65 million primary care visits per year include a skin concern. skinmap
+                and over 65 million primary care visits per year include a skin concern. Skinmap
                 closes that access gap with app-based Total Body Photography — a 60-second full-body scan,
                 reimbursed by Medicare, running on any iPhone in the practice.
               </p>
@@ -225,7 +225,7 @@ export function InvestorsPageClient() {
               are expected to fill this access gap — often without specialist-grade tools, dedicated
               tracking systems, or AI assistance of any kind. Computer vision AI has now reached
               clinical-grade performance for dermatological image classification, validated in
-              peer-reviewed literature and regulatory-cleared applications. skinmap is positioned
+              peer-reviewed literature and regulatory-cleared applications. Skinmap is positioned
               at exactly this inflection point.
             </p>
           </FadeUp>
@@ -280,7 +280,7 @@ export function InvestorsPageClient() {
                 </p>
                 <p className="text-gray-500 text-sm leading-relaxed">
                   The vast majority of these encounters occur without AI assistance, longitudinal
-                  tracking, or clinical-grade risk stratification — the exact gap skinmap closes.
+                  tracking, or clinical-grade risk stratification — the exact gap Skinmap closes.
                 </p>
               </div>
             </div>
@@ -294,10 +294,10 @@ export function InvestorsPageClient() {
           <FadeUp className="text-center mb-14">
             <SectionEyebrow>Competitive Landscape</SectionEyebrow>
             <SectionHeadline className="text-navy mt-2">
-              skinmap vs. the status quo
+              Skinmap vs. the status quo
             </SectionHeadline>
             <SectionSubtext className="mx-auto mt-4">
-              The current standard of care is broken. skinmap fixes the tooling problem.
+              The current standard of care is broken. Skinmap fixes the tooling problem.
             </SectionSubtext>
           </FadeUp>
 
@@ -305,7 +305,7 @@ export function InvestorsPageClient() {
             {/* Status quo */}
             <FadeUp delay={0.1}>
               <div className="rounded-3xl bg-white border border-gray-200 p-8">
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Status Quo (Without skinmap)</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Status Quo (Without Skinmap)</p>
                 <div className="space-y-4">
                   {[
                     'Visual-only skin exam — no documentation',
@@ -326,11 +326,11 @@ export function InvestorsPageClient() {
               </div>
             </FadeUp>
 
-            {/* skinmap */}
+            {/* Skinmap */}
             <FadeUp delay={0.2}>
               <div className="rounded-3xl bg-navy border border-white/10 p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-coral/10 blur-2xl pointer-events-none" aria-hidden="true" />
-                <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-6">skinmap</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-6">Skinmap</p>
                 <div className="space-y-4">
                   {[
                     'Full-body TBP in ~60 seconds — no hardware, just an iPhone',
@@ -338,7 +338,7 @@ export function InvestorsPageClient() {
                     'Full scan history per patient, searchable and filterable',
                     'Medicare reimbursed · CPT 96904 · Major insurers covered',
                     'HIPAA-compliant AES-256 encrypted storage · Patented',
-                    'Over 90% patient opt-in rate when offered skinmap',
+                    'Over 90% patient opt-in rate when offered Skinmap',
                   ].map((item) => (
                     <div key={item} className="flex gap-3 items-start">
                       <CheckCircle2 size={16} className="text-coral shrink-0 mt-0.5" aria-hidden="true" />
@@ -361,7 +361,7 @@ export function InvestorsPageClient() {
               Four Reasons the Timing Is Right
             </SectionHeadline>
             <SectionSubtext className="text-navy-200 mx-auto">
-              The market, the technology, and the team have converged. Here is why skinmap wins.
+              The market, the technology, and the team have converged. Here is why Skinmap wins.
             </SectionSubtext>
           </FadeUp>
 
@@ -399,7 +399,7 @@ export function InvestorsPageClient() {
               Validated Across Clinical Settings
             </SectionHeadline>
             <SectionSubtext className="mx-auto">
-              skinmap is deployed and validated across academic medical centers, health systems,
+              Skinmap is deployed and validated across academic medical centers, health systems,
               and private dermatology and primary care practices.
             </SectionSubtext>
           </FadeUp>
@@ -444,7 +444,7 @@ export function InvestorsPageClient() {
                 Early Traction Across Clinical Settings
               </SectionHeadline>
               <p className="text-gray-500 leading-relaxed mb-8">
-                skinmap is past the validation phase. We have clinical deployment data,
+                Skinmap is past the validation phase. We have clinical deployment data,
                 IRB-approved study results, a regulatory pathway, and a growing cohort of
                 physicians actively using the platform in practice.
               </p>

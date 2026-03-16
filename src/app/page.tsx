@@ -5,7 +5,13 @@ import Image from 'next/image';
 import { motion, useReducedMotion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { useFeatureFlag } from '@/hooks/useFeatureFlag';
-import { FLAGS, HOMEPAGE_HERO_CTA_VARIANTS, type HomepageHeroCtaVariant } from '@/lib/flags';
+import {
+  FLAGS,
+  HOMEPAGE_HERO_CTA_VARIANTS,
+  HERO_SUBHEADLINE_VARIANTS,
+  type HomepageHeroCtaVariant,
+  type HeroSubheadlineVariant,
+} from '@/lib/flags';
 import {
   Camera,
   TrendingUp,
@@ -107,7 +113,7 @@ function PhoneMockup({
           <div className="absolute inset-0 pt-7">
             <Image
               src={imageSrc}
-              alt={`skinmap app — ${screen} screen`}
+              alt={`Skinmap app — ${screen} screen`}
               fill
               className="object-cover object-top"
               sizes="(max-width: 640px) 224px, 256px"
@@ -261,7 +267,7 @@ const howItWorksSteps = [
     Icon: DollarSign,
     title: 'Reimburse',
     description:
-      'CPT 96904 covers eligible patients. skinmap auto-generates Medicare claim documentation. Add a reimbursed service to your existing workflow.',
+      'CPT 96904 covers eligible patients. Skinmap auto-generates Medicare claim documentation. Add a reimbursed service to your existing workflow.',
   },
 ] as const;
 
@@ -272,7 +278,7 @@ const appFeatures = [
     title: 'A complete skin map in ~60 seconds.',
     description:
       'Any MA or nurse. One iPhone. About one minute. Over 90% of patients opted in during our clinical pilot program.',
-    callout: 'Conventional TBP systems cost tens of thousands. skinmap starts at ~$1,400.',
+    callout: 'Conventional TBP systems cost tens of thousands. Skinmap starts at ~$1,400.',
     icon: Camera,
   },
   {
@@ -298,7 +304,7 @@ const appFeatures = [
     eyebrow: 'Medicare Reimbursed',
     title: 'Covered by Medicare. Claim ready.',
     description:
-      'CPT 96904 covers eligible patients with dysplastic nevi or a melanoma history. skinmap generates claim documentation automatically.',
+      'CPT 96904 covers eligible patients with dysplastic nevi or a melanoma history. Skinmap generates claim documentation automatically.',
     callout: 'Add a reimbursed service and raise your standard of care — at the same time.',
     icon: DollarSign,
   },
@@ -329,7 +335,7 @@ const practiceStats = [
 const testimonials = [
   {
     quote:
-      "skinmap has fundamentally changed how I follow suspicious lesions. I used to rely on hand-drawn maps and verbal notes. Now I have a side-by-side visual comparison at every visit.",
+      "Skinmap has fundamentally changed how I follow suspicious lesions. I used to rely on hand-drawn maps and verbal notes. Now I have a side-by-side visual comparison at every visit.",
     name: 'Board-Certified Dermatologist',
     role: 'Private Practice',
     institution: 'United States',
@@ -337,7 +343,7 @@ const testimonials = [
   },
   {
     quote:
-      "Knowing my dermatologist is using skinmap makes me feel like nothing will slip through the cracks.",
+      "Knowing my dermatologist is using Skinmap makes me feel like nothing will slip through the cracks.",
     name: 'Verified Patient',
     role: 'Dermatology Practice',
     institution: 'United States',
@@ -373,6 +379,12 @@ export default function HomePage() {
   ) as HomepageHeroCtaVariant;
   const heroCta = HOMEPAGE_HERO_CTA_VARIANTS[heroCtaVariant] ?? HOMEPAGE_HERO_CTA_VARIANTS.control;
 
+  const heroSubVariant = useFeatureFlag(
+    FLAGS.HERO_SUBHEADLINE,
+    'control',
+  ) as HeroSubheadlineVariant;
+  const heroSub = HERO_SUBHEADLINE_VARIANTS[heroSubVariant] ?? HERO_SUBHEADLINE_VARIANTS.control;
+
   return (
     <>
       {/* ================================================================== */}
@@ -403,8 +415,7 @@ export default function HomePage() {
 
               <FadeUp delay={0.2}>
                 <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-xl">
-                  Full-body skin scans in ~90 seconds. iPhone only. No extra room, no expensive hardware,
-                  no specialist. Any member of your team can do it.
+                  {heroSub}
                 </p>
               </FadeUp>
 
@@ -465,7 +476,7 @@ export default function HomePage() {
       <Section className="bg-cream">
         <Container>
           <FadeUp className="text-center mb-14">
-            <SectionEyebrow>Why Physicians Choose skinmap</SectionEyebrow>
+            <SectionEyebrow>Why Physicians Choose Skinmap</SectionEyebrow>
             <SectionHeadline className="text-navy-500 mt-2 max-w-2xl mx-auto">
               Built for the way practices actually work.
             </SectionHeadline>
@@ -505,7 +516,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-lg font-bold text-navy mb-3">Catch What Single Exams Miss</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  skinmap compares visit-over-visit, flagging lesions that have changed. The
+                  Skinmap compares visit-over-visit, flagging lesions that have changed. The
                   ones that looked fine last year — but don&apos;t look the same today.
                 </p>
               </div>
@@ -521,7 +532,7 @@ export default function HomePage() {
         <Container>
           <FadeUp className="text-center mb-16">
             <SectionEyebrow>Clinical Workflow</SectionEyebrow>
-            <SectionHeadline className="text-navy mt-2">How skinmap works</SectionHeadline>
+            <SectionHeadline className="text-navy mt-2">How Skinmap works</SectionHeadline>
             <SectionSubtext className="mt-4 max-w-xl mx-auto">
               Any practice. Any patient. About one minute.
             </SectionSubtext>
@@ -587,7 +598,7 @@ export default function HomePage() {
             </SectionHeadline>
             <SectionSubtext className="mt-4 max-w-xl mx-auto">
               Traditional TBP requires a six-figure system and a dedicated technician.
-              skinmap runs on the iPhone already in your pocket.
+              Skinmap runs on the iPhone already in your pocket.
             </SectionSubtext>
           </FadeUp>
 
@@ -615,10 +626,10 @@ export default function HomePage() {
                 </ul>
               </div>
 
-              {/* skinmap */}
+              {/* Skinmap */}
               <div className="bg-navy rounded-2xl p-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-coral/10 blur-2xl pointer-events-none" aria-hidden="true" />
-                <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-7">skinmap</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-7">Skinmap</p>
                 <ul className="space-y-4">
                   {[
                     'Starting at ~$1,400',
@@ -698,7 +709,7 @@ export default function HomePage() {
           <FadeUp className="text-center mb-14">
             <SectionEyebrow className="text-coral">By the Numbers</SectionEyebrow>
             <SectionHeadline className="text-white mt-2">
-              skinmap in your practice
+              Skinmap in your practice
             </SectionHeadline>
           </FadeUp>
 
@@ -728,7 +739,7 @@ export default function HomePage() {
               </h3>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
                 CPT 96904 covers eligible patients with dysplastic nevi or a melanoma history.
-                skinmap generates compliant claim documentation automatically. HIPAA compliant. Patented.
+                Skinmap generates compliant claim documentation automatically. HIPAA compliant. Patented.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link href="/contact?type=demo">
@@ -799,7 +810,7 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 text-lg mb-8 leading-relaxed">
               History of melanoma or dysplastic nevi? You may be covered.
-              Ask your doctor about skinmap at your next appointment.
+              Ask your doctor about Skinmap at your next appointment.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/for-patients">
@@ -821,7 +832,7 @@ export default function HomePage() {
           <FadeUp className="text-center max-w-3xl mx-auto">
             <SectionEyebrow className="mb-4">Get Started</SectionEyebrow>
             <SectionHeadline className="text-navy mb-4">
-              Add skinmap to Your Practice
+              Add Skinmap to Your Practice
             </SectionHeadline>
             <SectionSubtext className="mb-8">
               Available to dermatologists and primary care physicians across the U.S. Medicare reimbursed.

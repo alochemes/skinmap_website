@@ -89,20 +89,20 @@ const specialtyBadgeClass: Record<Specialty, string> = {
 
 const faqs = [
   {
-    q: 'What does a skinmap appointment look like?',
-    a: 'A medical assistant or nurse at your practice uses the skinmap iPhone app to capture a full-body photo record — it takes about 60 seconds. Your images are securely stored, and at each follow-up visit your doctor can compare your skin side-by-side to see what changed. No extra equipment, no separate visit.',
+    q: 'What does a Skinmap appointment look like?',
+    a: 'A medical assistant or nurse at your practice uses the Skinmap iPhone app to capture a full-body photo record — it takes about 60 seconds. Your images are securely stored, and at each follow-up visit your doctor can compare your skin side-by-side to see what changed. No extra equipment, no separate visit.',
   },
   {
     q: 'Is it covered by insurance?',
     a: 'Yes. CPT 96904 (Total Body Photography) is covered by Medicare and major insurers for patients with dysplastic nevi and those with a personal or family history of melanoma. Ask your doctor if you qualify.',
   },
   {
-    q: 'How do I ask my doctor about skinmap?',
-    a: 'At your next appointment, simply say: "I read about skinmap — an app-based Total Body Photography tool that tracks my skin over time. Would you consider adding it to my care?" That\'s all it takes. If they\'re not familiar, you can point them to skinmap.com.',
+    q: 'How do I ask my doctor about Skinmap?',
+    a: 'At your next appointment, simply say: "I read about Skinmap — an app-based Total Body Photography tool that tracks my skin over time. Would you consider adding it to my care?" That\'s all it takes. If they\'re not familiar, you can point them to Skinmap.com.',
   },
   {
     q: 'What happens if my doctor isn\'t on the map yet?',
-    a: 'Use the "Request skinmap in my area" form below. We\'ll note your location in our deployment planning and reach out to practices near you. You can also send your doctor directly to skinmap.com/contact to get started.',
+    a: 'Use the "Request Skinmap in my area" form below. We\'ll note your location in our deployment planning and reach out to practices near you. You can also send your doctor directly to Skinmap.com/contact to get started.',
   },
 ];
 
@@ -148,8 +148,8 @@ function RequestForm() {
         </div>
         <h3 className="text-xl font-bold text-navy mb-2">Request received.</h3>
         <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
-          We&apos;ll note your area in our deployment planning. If you&apos;d like to bring skinmap to your doctor directly, share{' '}
-          <Link href="/contact" className="text-coral underline underline-offset-2">skinmap.com/contact</Link> with them.
+          We&apos;ll note your area in our deployment planning. If you&apos;d like to bring Skinmap to your doctor directly, share{' '}
+          <Link href="/contact" className="text-coral underline underline-offset-2">Skinmap.com/contact</Link> with them.
         </p>
       </motion.div>
     );
@@ -211,7 +211,7 @@ function RequestForm() {
         />
       </div>
       <Button type="submit" variant="primary" size="md" loading={loading} fullWidth>
-        Request skinmap in My Area
+        Request Skinmap in My Area
         <ArrowRight size={16} aria-hidden="true" />
       </Button>
     </form>
@@ -376,7 +376,7 @@ export function ForPatientsPageClient() {
 
             <FadeUp delay={0.1}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-500 tracking-tight leading-[1.05] mb-5">
-                Find a skinmap
+                Find a Skinmap
                 <br />
                 <span className="text-coral">Physician Near You.</span>
               </h1>
@@ -384,7 +384,7 @@ export function ForPatientsPageClient() {
 
             <FadeUp delay={0.2}>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-                skinmap is available at dermatology practices and primary care offices across the U.S.
+                Skinmap is available at dermatology practices and primary care offices across the U.S.
                 Search by city, name, or specialty to find a physician near you.
               </p>
             </FadeUp>
@@ -413,7 +413,7 @@ export function ForPatientsPageClient() {
               <p className="text-sm text-gray-500 mt-4">
                 Not seeing a provider near you?{' '}
                 <a href="#request" className="text-coral font-semibold hover:underline underline-offset-2">
-                  Request skinmap in your area →
+                  Request Skinmap in your area →
                 </a>
               </p>
             </FadeUp>
@@ -429,10 +429,10 @@ export function ForPatientsPageClient() {
             <SectionHeadline className="text-navy mt-2 max-w-2xl mx-auto">
               Your doctor sees your skin for 5 minutes.
               <br />
-              <span className="text-coral">skinmap builds the record between visits.</span>
+              <span className="text-coral">Skinmap builds the record between visits.</span>
             </SectionHeadline>
             <SectionSubtext className="mx-auto mt-4">
-              Most skin exams are visual, single-visit, and undocumented. skinmap changes that —
+              Most skin exams are visual, single-visit, and undocumented. Skinmap changes that —
               giving your physician a secure photo record of your entire skin surface that builds
               with every appointment.
             </SectionSubtext>
@@ -538,7 +538,7 @@ export function ForPatientsPageClient() {
                   <p className="text-navy font-semibold mb-1">No providers found</p>
                   <p className="text-gray-400 text-sm mb-4">Try a different search or filter.</p>
                   <a href="#request" className="text-sm font-semibold text-coral hover:underline underline-offset-2">
-                    Request skinmap in your area →
+                    Request Skinmap in your area →
                   </a>
                 </div>
               ) : (
@@ -559,7 +559,7 @@ export function ForPatientsPageClient() {
               <p className="text-xs text-gray-500 mb-2">Don&apos;t see a provider near you?</p>
               <a href="#request">
                 <Button variant="outline" size="sm" fullWidth>
-                  Request skinmap in My Area
+                  Request Skinmap in My Area
                   <ArrowRight size={14} aria-hidden="true" />
                 </Button>
               </a>
@@ -597,7 +597,7 @@ export function ForPatientsPageClient() {
             <FadeUp className="text-center mb-12">
               <SectionEyebrow>Start the Conversation</SectionEyebrow>
               <SectionHeadline className="text-navy mt-2">
-                How to Ask Your Doctor About skinmap
+                How to Ask Your Doctor About Skinmap
               </SectionHeadline>
               <SectionSubtext className="mx-auto mt-4">
                 One sentence is all it takes. Here&apos;s exactly what to say.
@@ -609,14 +609,14 @@ export function ForPatientsPageClient() {
                 <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-coral/10 blur-2xl pointer-events-none" aria-hidden="true" />
                 <p className="text-xs font-semibold uppercase tracking-widest text-coral mb-4">Conversation starter</p>
                 <blockquote className="text-xl sm:text-2xl text-white font-medium leading-relaxed mb-6">
-                  &ldquo;I read about <span className="text-coral font-bold">skinmap</span> — a Total Body Photography app that tracks my skin over time.
+                  &ldquo;I read about <span className="text-coral font-bold">Skinmap</span> — a Total Body Photography app that tracks my skin over time.
                   It&apos;s covered by Medicare for patients with a history of melanoma or dysplastic nevi.
                   Would you consider adding it to my care?&rdquo;
                 </blockquote>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  If your doctor isn&apos;t familiar with skinmap yet, point them to{' '}
+                  If your doctor isn&apos;t familiar with Skinmap yet, point them to{' '}
                   <Link href="/contact?type=demo" className="text-coral underline underline-offset-2 hover:text-coral-light">
-                    skinmap.com/contact
+                    Skinmap.com/contact
                   </Link>{' '}
                   to get started.
                 </p>
@@ -629,7 +629,7 @@ export function ForPatientsPageClient() {
                   {
                     step: '01',
                     title: 'Before your appointment',
-                    body: 'Note any moles or spots you\'ve been watching. Mention your interest in skinmap when you book your visit.',
+                    body: 'Note any moles or spots you\'ve been watching. Mention your interest in Skinmap when you book your visit.',
                   },
                   {
                     step: '02',
@@ -639,7 +639,7 @@ export function ForPatientsPageClient() {
                   {
                     step: '03',
                     title: 'After your appointment',
-                    body: 'If your doctor isn\'t using skinmap yet, send them to skinmap.com. Your question could bring skinmap to your entire practice — and to patients after you.',
+                    body: 'If your doctor isn\'t using Skinmap yet, send them to Skinmap.com. Your question could bring Skinmap to your entire practice — and to patients after you.',
                   },
                 ].map(({ step, title, body }) => (
                   <div key={step} className="rounded-2xl bg-cream border border-gray-200 p-6">
@@ -666,7 +666,7 @@ export function ForPatientsPageClient() {
               </SectionHeadline>
               <SectionSubtext className="mb-8">
                 Tell us where you are. We&apos;ll prioritize your area in our deployment planning and
-                work to bring skinmap to physicians near you.
+                work to bring Skinmap to physicians near you.
               </SectionSubtext>
 
               <div className="space-y-4">
@@ -734,7 +734,7 @@ export function ForPatientsPageClient() {
           <FadeUp>
             <p className="eyebrow text-white/70 mb-4">You deserve to know</p>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
-              Ask your doctor about skinmap
+              Ask your doctor about Skinmap
               <br className="hidden sm:block" />
               at your next appointment.
             </h2>
@@ -750,7 +750,7 @@ export function ForPatientsPageClient() {
               </Link>
               <Link href="/product">
                 <Button variant="outline-white" size="lg">
-                  Learn How skinmap Works
+                  Learn How Skinmap Works
                 </Button>
               </Link>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 // ---------------------------------------------------------------------------
-// useFeatureFlag — skinmap Phase 5
+// useFeatureFlag — Skinmap Phase 5
 // Thin wrapper over PostHog feature flags with SSR-safe defaults.
 // PostHog flags are evaluated client-side after hydration.
 // Always provide a `defaultValue` that matches the control variant so the

@@ -3,13 +3,13 @@ import type { Metadata } from 'next';
 import { ContactPageClient } from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: 'Contact | skinmap',
+  title: 'Contact | Skinmap',
   description:
-    'Get in touch with the skinmap team. Request a physician demo, explore clinical partnerships, connect with our investors team, or reach out for press inquiries.',
+    'Get in touch with the Skinmap team. Request a physician demo, explore clinical partnerships, connect with our investors team, or reach out for press inquiries.',
   openGraph: {
-    title: 'Contact skinmap | Get in Touch',
+    title: 'Contact Skinmap | Get in Touch',
     description:
-      'Whether you are ready to book a demo or just have questions — we want to hear from you. Reach the right team at skinmap.',
+      'Whether you are ready to book a demo or just have questions — we want to hear from you. Reach the right team at Skinmap.',
   },
 };
 

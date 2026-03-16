@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Feature Flags — skinmap Phase 5
+// Feature Flags — Skinmap Phase 5
 // All flags are defined here as typed constants.
 // Create the matching flags in PostHog: app.posthog.com → Feature Flags
 //
@@ -30,6 +30,10 @@ export const FLAGS = {
   // A/B: Doctor search input — autofill vs manual ZIP
   // Variants: 'manual_zip' | 'location_autofill'
   DOCTOR_SEARCH_INPUT: 'doctor_search_input',
+
+  // A/B: Homepage hero subheadline copy
+  // Variants: 'control' | 'variant_confidence'
+  HERO_SUBHEADLINE: 'hero_subheadline_test',
 } as const;
 
 export type FlagKey = (typeof FLAGS)[keyof typeof FLAGS];
@@ -47,7 +51,14 @@ export type HomepageHeroCtaVariant = keyof typeof HOMEPAGE_HERO_CTA_VARIANTS;
 
 export const HOMEPAGE_PATIENT_CTA_VARIANTS = {
   control:          'Learn More',
-  variant_ask_doctor: 'Ask Your Doctor About skinmap',
+  variant_ask_doctor: 'Ask Your Doctor About Skinmap',
 } as const;
 
 export type HomepagePatientCtaVariant = keyof typeof HOMEPAGE_PATIENT_CTA_VARIANTS;
+
+export const HERO_SUBHEADLINE_VARIANTS = {
+  control:            'Your patients deserve a complete skin record. Skinmap builds it, visit by visit.',
+  variant_confidence: 'Walk into every exam knowing exactly what changed. Skinmap makes that possible.',
+} as const;
+
+export type HeroSubheadlineVariant = keyof typeof HERO_SUBHEADLINE_VARIANTS;

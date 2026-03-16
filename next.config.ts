@@ -13,16 +13,39 @@ const nextConfig: NextConfig = {
 };
 
 export default withSentryConfig(nextConfig, {
-  // Sentry org + project (set in env or hardcode here)
-  org: process.env.SENTRY_ORG ?? 'skinmap',
-  project: process.env.SENTRY_PROJECT ?? 'skinmap-web',
+  // For all available options, see:
+  // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-  // Only upload source maps on real CI builds, not local dev
+  org: "skinmap",
+
+  project: "javascript-nextjs",
+
+  // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
 
-  // Tree-shake Sentry debug code from production bundles
-  disableLogger: true,
+  // For all available options, see:
+  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
-  // Automatically instrument Next.js data fetching methods
-  autoInstrumentServerFunctions: true,
+  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  widenClientFileUpload: true,
+
+  // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
+  // This can increase your server load as well as your hosting bill.
+  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
+  // side errors will fail.
+  tunnelRoute: "/monitoring",
+
+  webpack: {
+    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
+    // See the following for more information:
+    // https://docs.sentry.io/product/crons/
+    // https://vercel.com/docs/cron-jobs
+    automaticVercelMonitors: true,
+
+    // Tree-shaking options for reducing bundle size
+    treeshake: {
+      // Automatically tree-shake Sentry logger statements to reduce bundle size
+      removeDebugLogging: true,
+    },
+  },
 });
